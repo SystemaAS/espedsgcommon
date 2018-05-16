@@ -16,6 +16,9 @@ public final class MainUrlDataStore {
 	//Special firm code service in order to login above
 	static public String SYSTEMA_WEB_FIRMLOGIN_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsSYFIRMLOGIN.do";
 	
+	//Change password
+	static public String SYSTEMA_WEB_LOGIN_CHANGE_PWD_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsBRIDFDPR_U.do";
+	
 	
 	//---------------
 	//[2] Notisblock 
