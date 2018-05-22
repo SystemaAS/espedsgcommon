@@ -134,4 +134,13 @@ public class StringManager {
 		return retval;
 	}
 	
+	public String trimValue(String value){
+		String retval = value;
+		
+		if(this.isNotNull(value)){
+			retval= value.trim();
+		}
+		return retval;	
+	}
+	
 }
