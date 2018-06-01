@@ -6,6 +6,7 @@ import java.util.Collection;
 
 import no.systema.main.model.jsonjackson.JsonSystemaUserExtensionsArchiveRecord;
 import no.systema.main.model.jsonjackson.JsonSystemaUserExtensionsMultiUserSwitchRecord;
+import no.systema.main.model.jsonjackson.JsonSystemaUserRecord;
 import no.systema.main.util.AppConstants;
 
 /**
@@ -312,6 +313,10 @@ public class SystemaWebUser {
 	private Collection<JsonSystemaUserExtensionsMultiUserSwitchRecord> multiUser;
 	public void setMultiUser(Collection<JsonSystemaUserExtensionsMultiUserSwitchRecord> value){ this.multiUser = value; }
 	public Collection<JsonSystemaUserExtensionsMultiUserSwitchRecord> getMultiUser(){ return multiUser; }
+	
+	private Collection<JsonSystemaUserRecord> menuList;
+	public void setMenuList(Collection<JsonSystemaUserRecord> value){ this.menuList = value; }
+	public Collection<JsonSystemaUserRecord> getMenuList(){ return menuList; }
 	
 	
 

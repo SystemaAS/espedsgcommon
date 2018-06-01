@@ -96,5 +96,6 @@ public class JsonSystemaUserContainer {
 	public void setMultiUser(Collection<JsonSystemaUserExtensionsMultiUserSwitchRecord> value){ this.multiUser = value; }
 	public Collection<JsonSystemaUserExtensionsMultiUserSwitchRecord> getMultiUser(){ return multiUser; }
 	
+	
 
 }
