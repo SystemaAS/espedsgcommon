@@ -1,9 +1,12 @@
 package no.systema.main.validator;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.*;
+import java.time.format.DateTimeFormatter;
 import org.apache.log4j.Logger;
-
+import no.systema.main.util.StringManager;
 
 /**
  * Utility class
@@ -12,6 +15,9 @@ import org.apache.log4j.Logger;
  * 
  */
 public class DateValidator {
+	public static final String DATE_MASK_NO = "ddMMyy";
+	public static final String DATE_MASK_ISO = "yyyyMMdd";
+	
 	private static final Logger logger = Logger.getLogger(DateValidator.class.getName());
 	//This pattern checks ONLY the logical part of HH:mm
 	//The logical part for a date, including leap years is too complicated to implement here. 
@@ -21,6 +27,8 @@ public class DateValidator {
 	private final String DATE_ISO_YYYYMMDD = "^(19|20|99)\\d\\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])$";
 	//HHmm only
 	private final String TIME_HHmm = "(([0-1]?[0-9])|(2[0-3]))[0-5][0-9]"; //OK HH:mm
+	//
+	StringManager strMgr = new StringManager();
 	
     /**
      * validates date as in correct mask
@@ -85,4 +93,30 @@ public class DateValidator {
 		}
 		return retval;
     }
+    
+    /**
+     * 
+     * @param str
+     * @param mask
+     * @return
+     */
+    public boolean validateDate(String str, String mask){
+		boolean retval = false;
+		
+		if(strMgr.isNotNull(str)){
+			try{
+				SimpleDateFormat sdf = new SimpleDateFormat(mask);
+				sdf.setLenient(false);
+				Date date = sdf.parse(str);
+				//return
+				retval = true;
+				
+			}catch(Exception e){
+				e.toString();
+		
+			}
+		}
+		return retval;
+    }
+    
 }
