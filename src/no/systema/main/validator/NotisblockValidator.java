@@ -6,6 +6,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 
 import no.systema.main.model.jsonjackson.general.notisblock.JsonNotisblockRecord;
+import no.systema.main.util.StringManager;
 
 /**
  * 
@@ -16,7 +17,8 @@ import no.systema.main.model.jsonjackson.general.notisblock.JsonNotisblockRecord
  */
 public class NotisblockValidator implements Validator {
 	private static final Logger logger = Logger.getLogger(NotisblockValidator.class.getName());
-	
+	private DateValidator dateValidator = new DateValidator();
+	private StringManager strMgr = new StringManager();
 	/**
 	* This Validator validates just User instances 
 	* 
@@ -35,9 +37,21 @@ public class NotisblockValidator implements Validator {
 		JsonNotisblockRecord record = (JsonNotisblockRecord) obj;
 		
 		//ValidationUtils.rejectIfEmptyOrWhitespace(errors, "frtdt", "notisblock.header.item.null.date_frtdt"); 
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "frtkod", "notisblock.header.item.null.date_frtkod"); 
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "frttxt", "notisblock.header.item.null.date_frttxt"); 
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "frtkod", "Part", "Part er obligatorisk"); 
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "frttxt", "Text", "Tekst er obligtorisk");
 		
+		
+		//Check rules
+		if(record!=null){
+			//------
+			//dates 
+			//------
+			if(strMgr.isNotNull(record.getFrtdt())){
+				if(!dateValidator.validateDate(record.getFrtdt(), DateValidator.DATE_MASK_ISO)){
+					errors.rejectValue("frtdt", "Dato er ugyldig", "Dato er ugyldig"); 	
+				}
+			}
+		}
 	}
 	
 	
