@@ -133,6 +133,18 @@ public class StringManager {
 		}
 		return retval;
 	}
+	public String adjustDecimalPointToString(String value){
+		String retval = value;
+		String ZERO = "0";
+		
+		if(this.isNotNull(value)){
+			String tmp = value.replace(".", ",");
+			retval = tmp;
+		}else{
+			retval = ZERO;
+		}
+		return retval;
+	}
 	
 	public String trimValue(String value){
 		String retval = value;
