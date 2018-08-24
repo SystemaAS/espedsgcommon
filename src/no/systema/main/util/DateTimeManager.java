@@ -48,6 +48,15 @@ public class DateTimeManager {
 		return  retval; 
 	}
 	
+	public String getDayNrOfYear(){
+		int dayOfYear = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
+		return String.valueOf(dayOfYear);
+	}
+	public String getYear(){
+		int year = Calendar.getInstance().get(Calendar.YEAR);
+		return String.valueOf(year);
+	}
+	
 	public String getCurrentYear(){
 		String retval = null;
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy");
