@@ -62,6 +62,8 @@ public class StringManager {
 		}
 		return str.toString();
 	}
+	
+	
 	/**
 	 * 
 	 * @param value
