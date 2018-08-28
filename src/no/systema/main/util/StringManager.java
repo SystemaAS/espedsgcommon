@@ -157,4 +157,15 @@ public class StringManager {
 		return retval;	
 	}
 	
+	public String substringValue(String value, int endIndex){
+		String retval = value;
+		if(this.isNotNull(value)){
+			if(value.length()>endIndex){
+				retval = value.substring(0, endIndex);
+			}
+		}
+
+		return retval;
+	}
+	
 }
