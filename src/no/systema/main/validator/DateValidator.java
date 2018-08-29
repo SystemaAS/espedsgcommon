@@ -118,5 +118,35 @@ public class DateValidator {
 		}
 		return retval;
     }
+    /**
+     * 
+     * @param value
+     * @return
+     */
+    public boolean validateTime24Hours(String value){
+		boolean retval = false;
+		if(strMgr.isNotNull(value)){
+			//String TIME24HOURS_PATTERN =  "([01]?[0-9]|2[0-3]):[0-5][0-9]"; //with ":" separator
+			String TIME24HOURS_PATTERN =  "([01]?[0-9]|2[0-3])[0-5][0-9]";
+			retval = Pattern.matches(TIME24HOURS_PATTERN, value);
+		}	
+		return retval;
+    }
+    
+    /**
+    * 
+    * @param value
+    * @return
+    */
+    public boolean validateTime12Hours(String value){
+    	boolean retval = false;
+		if(strMgr.isNotNull(value)){
+			String TIME12HOURS_PATTERN =  "(1[012]|[1-9]):[0-5][0-9](\\s)?(?i)(am|pm)";
+			retval = Pattern.matches(TIME12HOURS_PATTERN, value);
+		}	
+		return retval;
+    }
+    
+    
     
 }
