@@ -76,7 +76,10 @@ public class SystemaWebUser {
 	public static final String ACTIVE_MENU_TROR = "TROR";
 	//GODSREGISTRERING NO - GODSNO 
 	public static final String ACTIVE_MENU_GODSREGNO = "GODSREGNO";
-			
+	public static final String ACTIVE_MENU_GODSREGNO_MAINTENANCE = "GODSREGNO_MAINTENANCE";
+	public static final String ACTIVE_MENU_GODSREGNO_MAINTENANCE_ONE = "GODSREGNO_MAINTENANCE_ONE";
+	public static final String ACTIVE_MENU_GODSREGNO_MAINTENANCE_TWO = "GODSREGNO_MAINTENANCE_TWO";
+	
 	//----------------------------------------------------------------------
 	//In order to get the login host (request.getHost()) (when applicable)
 	//----------------------------------------------------------------------
