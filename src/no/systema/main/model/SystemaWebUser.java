@@ -46,6 +46,7 @@ public class SystemaWebUser {
 	public static final String ACTIVE_MENU_TVINN_SAD_NCTS_EXPORT = "TVINN_SAD_NCTS_EXPORT";
 	public static final String ACTIVE_MENU_TVINN_SAD_IMPORT = "TVINN_SAD_IMPORT";
 	public static final String ACTIVE_MENU_TVINN_SAD_NCTS_IMPORT = "TVINN_SAD_NCTS_IMPORT";
+	public static final String ACTIVE_MENU_TVINN_SAD_MANIFEST = "TVINN_SAD_MANIFEST";
 	public static final String ACTIVE_MENU_TVINN_SAD_ADMIN = "TVINN_SAD_ADMIN";
 	public static final String ACTIVE_MENU_TVINN_SAD_AVGGRUNNLAG_EXTERNAL = "TVINN_SAD_AVGGRUNNLAG_EXTERNAL";
 	
