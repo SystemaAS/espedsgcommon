@@ -62,6 +62,36 @@ public class StringManager {
 		}
 		return str.toString();
 	}
+	/**
+	 * 
+	 * @param value
+	 * @param fieldLimit
+	 * @param fillerChar
+	 * @return
+	 */
+	public String trailingStringWithFiller(String value, int fieldLimit, String fillerChar){
+		String FILLER = fillerChar;
+		int FTX_LIMIT = fieldLimit;
+		StringBuffer str = new StringBuffer();
+		String filler = new String();
+		try{
+			if(value!=null){ //only for null and not for "empty" string. Empty string should use the filler 
+				int len = value.length();
+				for (int x=1;x<=FTX_LIMIT-len;x++){
+					if(x==1){
+						filler = FILLER;
+					}else{
+						filler = filler + FILLER;
+					}
+				}
+				str.append(value + filler);
+			}
+			
+		}catch(Exception e){
+			
+		}
+		return str.toString();
+	}
 	
 	
 	/**
