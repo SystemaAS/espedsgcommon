@@ -21,6 +21,22 @@ public class JsonCurrencyRateRecord {
 	public void setSvvk_krs(String value){ this.svvk_krs = value;}
 	public String getSvvk_krs(){ return this.svvk_krs; }
 
+	private String own_blpSEK = null;
+	public void setOwn_blpSEK(String value){ this.own_blpSEK = value;}
+	public String getOwn_blpSEK(){ return this.own_blpSEK; }
+	
+	private String own_tollvSEK = null;
+	public void setOwn_tollvSEK(String value){ this.own_tollvSEK = value;}
+	public String getOwn_tollvSEK(){ return this.own_tollvSEK; }
+	
+	private String own_momsSEK = null;
+	public void setOwn_momsSEK(String value){ this.own_momsSEK = value;}
+	public String getOwn_momsSEK(){ return this.own_momsSEK; }
+	
+	private String own_grandTotalSEK = null;
+	public void setOwn_grandTotalSEK(String value){ this.own_grandTotalSEK = value;}
+	public String getOwn_grandTotalSEK(){ return this.own_grandTotalSEK; }
+	
 	//SKAT
 	private String dkvs_omr = null;
 	public void setDkvs_omr(String value){ this.dkvs_omr = value;}
