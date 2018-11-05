@@ -12,6 +12,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.util.ReflectionUtils;
 
 import no.systema.jservices.common.dao.IDao;
+import no.systema.jservices.common.util.StringUtils;
 import no.systema.main.model.jsonjackson.JsonSystemaUserRecord;
 import no.systema.main.util.AppConstants;
 
@@ -55,13 +56,18 @@ public class UrlRequestParameterMapper {
 	 * @param daoObj
 	 * @return a MultiValueMap with name:value to use in uri.
 	 */
-	public static MultiValueMap<String, String> getUriParameter(IDao daoObj) {
+	public static MultiValueMap<String, String> getUriParameter(Object daoObj) {
 		MultiValueMap<String, String> recordParams = new LinkedMultiValueMap<>();
 
 		try {
 			String className = daoObj.getClass().getName();
 			Class<?> clazz = Class.forName(className);
-			IDao dao = (IDao) clazz.newInstance();
+			Object dao = (Object) clazz.newInstance();
+
+			logger.info("dao="+dao);
+			Object parent = (Object) clazz.getSuperclass().newInstance();
+			logger.info("parent="+parent);			
+			
 			Class cl = Class.forName(dao.getClass().getCanonicalName());
 			Field[] fields = cl.getDeclaredFields();
 
@@ -72,7 +78,7 @@ public class UrlRequestParameterMapper {
 					continue;
 				}
 				Object value = ReflectionUtils.getField(field, daoObj );
-				//logger.info("getUriParameter: name="+name+", value="+value);
+				logger.info("getUriParameter: name="+name+", value="+value);
 				if (value != null) {
 					recordParams.add(name, String.valueOf(value).trim());
 				}
