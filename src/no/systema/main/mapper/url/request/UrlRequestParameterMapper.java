@@ -51,40 +51,61 @@ public class UrlRequestParameterMapper {
 	}
 	
 	/**
-	 * Parsing object implementing {@linkplain IDao} into {@linkplain MultiValueMap}.
+	 * Parsing object  into {@linkplain MultiValueMap}.
 	 * Using {@link ReflectionUtils}
-	 * @param daoObj
+	 * @param object
 	 * @return a MultiValueMap with name:value to use in uri.
 	 */
-	public static MultiValueMap<String, String> getUriParameter(Object daoObj) {
+	public static MultiValueMap<String, String> getUriParameter(Object object) {
 		MultiValueMap<String, String> recordParams = new LinkedMultiValueMap<>();
 
 		try {
-			String className = daoObj.getClass().getName();
-			Class<?> clazz = Class.forName(className);
-			Object dao = (Object) clazz.newInstance();
+			//Class
+			String objClassName = object.getClass().getName();
+			Class<?> objClazz = Class.forName(objClassName);
+			Object objInstance = (Object) objClazz.newInstance();
+			logger.info("objInstance="+objInstance);
 
-			logger.info("dao="+dao);
-			Object parent = (Object) clazz.getSuperclass().newInstance();
-			logger.info("parent="+parent);			
-			
-			Class cl = Class.forName(dao.getClass().getCanonicalName());
-			Field[] fields = cl.getDeclaredFields();
-
-			for (Field field : fields) {
+			Class objInstClass = Class.forName(objInstance.getClass().getCanonicalName());
+			Field[] objInstfields = objInstClass.getDeclaredFields();
+			for (Field field : objInstfields) {
 				ReflectionUtils.makeAccessible(field);
 				String name = (String) field.getName();
 				if ("keys".equals(name)) {
 					continue;
 				}
-				Object value = ReflectionUtils.getField(field, daoObj );
-				logger.info("getUriParameter: name="+name+", value="+value);
+				Object value = ReflectionUtils.getField(field, object );
+				logger.info("getUriParameter(object): name="+name+", value="+value);
 				if (value != null) {
 					recordParams.add(name, String.valueOf(value).trim());
 				}
 			}
+
+			
+			//SuperClass
+			String superClassName = object.getClass().getSuperclass().getName();
+			Class<?> superClazz = Class.forName(superClassName);
+			Object superClassInstance = (Object) superClazz.newInstance();
+			logger.info("superClassInstance="+superClassInstance);			
+			Class superInstClass = Class.forName(superClassInstance.getClass().getCanonicalName());
+			Field[] superInstfields = superInstClass.getDeclaredFields();
+
+			for (Field field : superInstfields) {
+				ReflectionUtils.makeAccessible(field);
+				String name = (String) field.getName();
+				if ("keys".equals(name)) {
+					continue;
+				}
+				Object value = ReflectionUtils.getField(field, object );
+				logger.info("getUriParameter(superclass): name="+name+", value="+value);
+				if (value != null) {
+					recordParams.add(name, String.valueOf(value).trim());
+				}
+			}
+			
+			
 		} catch (Exception e) {
-			String errMsg = String.format("Error running reflection on dao: %s", daoObj);
+			String errMsg = String.format("Error running reflection on object: %s", object);
 			logger.error(errMsg, e);
 			throw new RuntimeException(errMsg);
 		} 
