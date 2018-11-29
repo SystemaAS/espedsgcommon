@@ -65,6 +65,8 @@ public class SystemaWebUser {
 		
 	//TRANSPORTDISP
 	public static final String ACTIVE_MENU_TRANSPORT_DISP = "TRANSPORT_DISP";
+	public static final String ACTIVE_MENU_TRANSPORT_DISP_HISTORY = "TRANSPORT_DISP_HISTORY";
+	
 	//SPØRRING PÅ OPPDRAG
 	public static final String ACTIVE_MENU_SPORRING_OPPDRAG = "SPORRING_OPPDRAG";
 	//FRAKTKALKULATOR
