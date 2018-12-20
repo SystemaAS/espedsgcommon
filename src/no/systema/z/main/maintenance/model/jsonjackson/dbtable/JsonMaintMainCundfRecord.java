@@ -240,6 +240,11 @@ public class JsonMaintMainCundfRecord extends JsonAbstractGrandFatherRecord {
 	private String m3m3 = null;                                
 	public void setM3m3(String value){ this.m3m3 = value;   }   
 	public String getM3m3(){ return this.m3m3;   }  	
+
+	private String elma = null;                                
+	public void setElma(String value){ this.elma = value;   }   
+	public String getElma(){ return this.elma;   }  		
+	
 	
 	/**
 	 * 
