@@ -8,6 +8,10 @@ import no.systema.main.model.jsonjackson.general.JsonAbstractGrandFatherRecord;
 
 public class JsonMaintMainCundfRecord extends JsonAbstractGrandFatherRecord {
 
+	private String kundetype = null;                                
+	public void setKundetype (String value){ this.kundetype = value;   }   
+	public String getKundetype (){ return this.kundetype;   }   
+	
 	private String kundnr = null;                                
 	public void setKundnr (String value){ this.kundnr = value;   }   
 	public String getKundnr (){ return this.kundnr;   }              

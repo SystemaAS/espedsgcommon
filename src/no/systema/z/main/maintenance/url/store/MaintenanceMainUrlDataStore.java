@@ -96,6 +96,17 @@ public final class MaintenanceMainUrlDataStore {
 	 * ALL --> http://http://gw.systema.no:8080/syjservicesbcore/syjsSYCUNDFR.do?user=OSCAR&kundnr=1&firma=SY
 	 */
 	static public String MAINTENANCE_MAIN_BASE_SYCUNDFR_GET_LIST_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsSYCUNDFR.do";
+
+
+	/**
+	 * ALL --> http://http://gw.systema.no:8080/syjservicesbcore/syjsSYCUNDFR_INVOICE.do?user=OSCAR
+	 */
+	static public String MAINTENANCE_MAIN_BASE_SYCUNDFR_INVOICE_VALID_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsSYCUNDFR_INVOICE.do";
+	
+	/**
+	 * ALL --> http://http://gw.systema.no:8080/syjservicesbcore/syjsSYCUNDFR_FIRKU.do?user=OSCAR
+	 */
+	static public String MAINTENANCE_MAIN_BASE_SYCUNDFR_FIRKU_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsSYCUNDFR_FIRKU.do";
 	
 	
 	//GET Kontaktpersoner (cundc)
