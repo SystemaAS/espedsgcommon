@@ -329,6 +329,10 @@ public class JsonMaintMainFirmRecord extends JsonAbstractGrandFatherRecord {
 	private String fikune = null;                                
 	public void setFikune (String value){ this.fikune = value;   }   
 	public String getFikune (){ return this.fikune;   } 
+
+	private String fikufn = null;                                
+	public void setFikufn (String value){ this.fikufn = value;   }   
+	public String getFikufn (){ return this.fikufn;   } 	
 	//END FIRKU
 
 	
