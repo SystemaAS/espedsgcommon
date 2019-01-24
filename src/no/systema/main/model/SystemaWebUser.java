@@ -128,6 +128,10 @@ public class SystemaWebUser {
 	public void setCompanyCode(String value) {  this.companyCode = value; }
 	public String getCompanyCode() { return this.companyCode;}
 	
+	private String tradevisionFlag = null; 
+	public void setTradevisionFlag(String value) {  this.tradevisionFlag = value; }
+	public String getTradevisionFlag() { return this.tradevisionFlag;}
+	
 	private String fallbackCompanyCode = null; 
 	public void setFallbackCompanyCode(String value) {  this.fallbackCompanyCode = value; }
 	public String getFallbackCompanyCode() { return this.fallbackCompanyCode;}

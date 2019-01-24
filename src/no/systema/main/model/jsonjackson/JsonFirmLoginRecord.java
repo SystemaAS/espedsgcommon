@@ -12,6 +12,10 @@ public class JsonFirmLoginRecord extends JsonAbstractGrandFatherRecord {
 	public void setFifirm(String value) {  this.fifirm = value; }
 	public String getFifirm() { return this.fifirm;}
 
+	private String fitdvi = null; 
+	public void setFitdvi(String value) {  this.fitdvi = value; }
+	public String getFitdvi() { return this.fitdvi;}
+
 	/**
 	 * Required for java reflection in other classes
 	 * @return
