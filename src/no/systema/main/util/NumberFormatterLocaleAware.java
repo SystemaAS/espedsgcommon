@@ -233,4 +233,14 @@ public class NumberFormatterLocaleAware {
 		 return retval;
 	 }
 	 
+	 /**
+	  * Rounds up a BigDecimal
+	  * @param numberOfDecimals
+	  * @param value
+	  * @return
+	  */
+	 public BigDecimal formatBigDecimal(int numberOfDecimals, BigDecimal value){
+		 return value.setScale(numberOfDecimals, RoundingMode.HALF_UP);
+	 }
+	 
 }
