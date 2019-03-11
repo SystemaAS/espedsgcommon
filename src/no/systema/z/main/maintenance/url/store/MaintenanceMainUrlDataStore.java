@@ -104,6 +104,18 @@ public final class MaintenanceMainUrlDataStore {
 	static public String MAINTENANCE_MAIN_BASE_SYCUNDFR_INVOICE_VALID_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsSYCUNDFR_INVOICE.do";
 	
 	/**
+	 * http://localhost:8080/syjservicesbcore/syjsSYCUNDFR_ORGNR_EXIST?user=SYSTEMA&syrg=936809219
+	 */
+	static public String MAINTENANCE_MAIN_BASE_SYCUNDFR_ORGNR_EXIST_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsSYCUNDFR_ORGNR_EXIST";
+
+	
+	/**
+	 * http://localhost:8080/syjservicesbcore/syjsSYCUNDFR_ORGNR_MULTI?user=SYSTEMA&syrg=936809219
+	 */
+	static public String MAINTENANCE_MAIN_BASE_SYCUNDFR_ORGNR_MULTI_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsSYCUNDFR_ORGNR_MULTI";
+	
+	
+	/**
 	 * ALL --> http://http://gw.systema.no:8080/syjservicesbcore/syjsSYCUNDFR_FIRKU.do?user=OSCAR
 	 */
 	static public String MAINTENANCE_MAIN_BASE_SYCUNDFR_FIRKU_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsSYCUNDFR_FIRKU.do";
