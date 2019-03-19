@@ -38,7 +38,13 @@ public class JsonMaintMainCundfRecord extends JsonAbstractGrandFatherRecord {
 
 	private String postnr = null;                                
 	public void setPostnr (String value){ this.postnr = value;   }   
-	public String getPostnr (){ return this.postnr;   }              
+	public String getPostnr (){ 
+		if ("0".equals(postnr)) {
+			return "";
+		} else {
+			return this.postnr;
+		}
+	}              
 
 	private String syrg = null;                                
 	public void setSyrg (String value){ this.syrg = value;   }   
@@ -50,7 +56,13 @@ public class JsonMaintMainCundfRecord extends JsonAbstractGrandFatherRecord {
 
 	private String sykont = null;                                
 	public void setSykont (String value){ this.sykont = value;   }   
-	public String getSykont (){ return this.sykont;   }              
+	public String getSykont (){ 
+		if ("0".equals(sykont)) {
+			return "";
+		} else {
+			return this.sykont;
+		}
+	}              
 
 	private String syfr02 = null;                                
 	public void setSyfr02 (String value){ this.syfr02 = value;   }   
@@ -223,7 +235,13 @@ public class JsonMaintMainCundfRecord extends JsonAbstractGrandFatherRecord {
 	
 	private String xxbre = null;                                
 	public void setXxbre(String value){ this.xxbre = value;   }   
-	public String getXxbre(){ return this.xxbre;   }   		
+	public String getXxbre(){ 
+		if ("0.000000".equals(xxbre)) {
+			return "";
+		} else {
+			return this.xxbre;
+		}		
+	}   		
 	
 	private String syiat1 = null;                                
 	public void setSyiat1(String value){ this.syiat1 = value;   }   
@@ -231,7 +249,13 @@ public class JsonMaintMainCundfRecord extends JsonAbstractGrandFatherRecord {
 	
 	private String xxlen = null;                                
 	public void setXxlen(String value){ this.xxlen = value;   }   
-	public String getXxlen(){ return this.xxlen;   }  
+	public String getXxlen(){ 
+		if ("0.000000".equals(xxlen)) {
+			return "";
+		} else {
+			return this.xxlen;
+		}
+	}  
 	
 	private String syiat2 = null;                                
 	public void setSyiat2(String value){ this.syiat2 = value;   }   
@@ -249,6 +273,13 @@ public class JsonMaintMainCundfRecord extends JsonAbstractGrandFatherRecord {
 	public void setElma(String value){ this.elma = value;   }   
 	public String getElma(){ return this.elma;   }  		
 	
+	private String epost = null;                                
+	public void setEpost(String value){ this.epost = value;   }   
+	public String getEpost(){ return this.epost;   }  
+
+	private String epostmott = null;                                
+	public void setEpostmott(String value){ this.epostmott = value;   }   
+	public String getEpostmott(){ return this.epostmott;   }  	
 	
 	/**
 	 * 
