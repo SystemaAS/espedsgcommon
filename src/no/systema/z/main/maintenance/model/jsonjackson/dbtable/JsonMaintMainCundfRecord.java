@@ -273,6 +273,7 @@ public class JsonMaintMainCundfRecord extends JsonAbstractGrandFatherRecord {
 	public void setElma(String value){ this.elma = value;   }   
 	public String getElma(){ return this.elma;   }  		
 	
+	//CUNDC
 	private String epost = null;                                
 	public void setEpost(String value){ this.epost = value;   }   
 	public String getEpost(){ return this.epost;   }  
@@ -280,12 +281,28 @@ public class JsonMaintMainCundfRecord extends JsonAbstractGrandFatherRecord {
 	private String epostmott = null;                                
 	public void setEpostmott(String value){ this.epostmott = value;   }   
 	public String getEpostmott(){ return this.epostmott;   }  	
+
+	//VADR
+	private String vadrna = null;                                
+	public void setVadrna(String value){ this.vadrna = value;   }   
+	public String getVadrna(){ return this.vadrna;   }  
 	
-	/**
-	 * 
-	 * @return
-	 * @throws Exception
-	 */
+	private String vadrn1 = null;                                
+	public void setVadrn1(String value){ this.vadrn1 = value;   }   
+	public String getVadrn1(){ return this.vadrn1;   }  
+
+	private String vadrn2 = null;                                
+	public void setVadrn2(String value){ this.vadrn2 = value;   }   
+	public String getVadrn2(){ return this.vadrn2;   }  
+	
+	private String vadrn3 = null;                                
+	public void setVadrn3(String value){ this.vadrn3 = value;   }   
+	public String getVadrn3(){ return this.vadrn3;   }  
+	
+	private String valand = null;                                
+	public void setValand(String value){ this.valand = value;   }   
+	public String getValand(){ return this.valand;   }  
+
 	public List<Field> getFields() throws Exception{
 		Class cl = Class.forName(this.getClass().getCanonicalName());
 		Field[] fields = cl.getDeclaredFields();

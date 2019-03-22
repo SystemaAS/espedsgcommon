@@ -525,6 +525,8 @@ public final class MaintenanceMainUrlDataStore {
 	static public String MAINTENANCE_MAIN_BASE_DROPDOWN_SVT057R_GET_CURRENCY_LIST_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservices/syjsSVT057R.do";
 	static public String MAINTENANCE_MAIN_BASE_DROPDOWN_GET_CODES_TDS_LIST_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservices/syjsSVX001R.do";
 	
+	//MISC
+	static public String MAINTENANCE_MAIN_BASE_GET_VADR_LIST_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsVADR.do";
 	 
 	
 }
