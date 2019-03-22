@@ -7,6 +7,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.concurrent.TimeUnit;
+
+import no.systema.jservices.common.util.StringUtils;
 
 
 /**
@@ -433,6 +436,7 @@ public class DateTimeManager {
 		}
 		return retval;
 	}
+	
 	/**
 	 * 
 	 * @param lowerLimitDate
@@ -459,6 +463,37 @@ public class DateTimeManager {
 			e.toString();
 		}
 		return retval;
+	}
+	/**
+	 * 
+	 * @param date1
+	 * @param date2
+	 * @return
+	 */
+	public boolean validTwoDatesWithinSpanISO(String date1, String date2, int limitToCompare){
+		boolean retval = true;
+		if(StringUtils.hasValue(date1) && StringUtils.hasValue(date2) ){
+			try{
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+			    Date firstDate = formatter.parse(date1);
+			    Date secondDate = formatter.parse(date2);
+					 
+			    long diffInMillies = Math.abs(secondDate.getTime() - firstDate.getTime());
+			    long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+			    Long tmp = new Long(diff);
+			    int x = tmp.intValue();
+			    //System.out.println("x:" + x);
+			    //System.out.println("limit:" + limitToCompare);
+			    if(x>=limitToCompare){
+			    	retval = false;
+			    }
+			    
+			}catch(Exception e){
+				e.toString();
+			}
+		}
+	    return retval;
+
 	}
 	/**
 	 * Send -10 or 10 if you want to get a new date after a date operation 
