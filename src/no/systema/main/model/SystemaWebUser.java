@@ -213,7 +213,7 @@ public class SystemaWebUser {
 	public String getAuthorizedTvinnSadUserAS400() { return this.authorizedTvinnSadUserAS400;}
 		
 	
-	private String usrLang = null;
+	private String usrLang = "NO";
 	public void setUsrLang(String value) {  this.usrLang = value; }
 	public String getUsrLang() { return this.usrLang;}
 
