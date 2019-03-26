@@ -283,6 +283,10 @@ public class JsonMaintMainCundfRecord extends JsonAbstractGrandFatherRecord {
 	public String getEpostmott(){ return this.epostmott;   }  	
 
 	//VADR
+	private String vadrnr = null;                                
+	public void setVadrnr(String value){ this.vadrnr = value;   }   
+	public String getVadrnr(){ return this.vadrnr;   }  
+
 	private String vadrna = null;                                
 	public void setVadrna(String value){ this.vadrna = value;   }   
 	public String getVadrna(){ return this.vadrna;   }  

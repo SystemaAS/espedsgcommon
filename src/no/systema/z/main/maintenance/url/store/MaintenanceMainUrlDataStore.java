@@ -527,6 +527,7 @@ public final class MaintenanceMainUrlDataStore {
 	
 	//MISC
 	static public String MAINTENANCE_MAIN_BASE_GET_VADR_LIST_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsVADR.do";
+	static public String MAINTENANCE_MAIN_BASE_VADR_DML_UPDATE_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsVADR_U.do";
 	 
 	
 }
