@@ -23,6 +23,7 @@ public class SystemaWebUser {
 	public static final String ACTIVE_MENU_TDS_SIGN_PKI = "SIGN_PKI";
 	public static final String ACTIVE_MENU_TDS_CHANGE_PASSWORD = "CHANGE_PASSWORD";
 	public static final String ACTIVE_MENU_TDS_ADMIN = "TDS_ADMIN";
+	public static final String ACTIVE_MENU_TDS_ACCOUNTING = "TDS_ACCOUNTING";
 	//TDS MAINTENANCE 
 	public static final String ACTIVE_MENU_TDS_MAINTENANCE_EXPORT = "TDS_MAINTENANCE_EXPORT";
 	public static final String ACTIVE_MENU_TDS_MAINTENANCE_NCTS_EXPORT = "TDS_MAINTENANCE_NCTS_EXPORT";
