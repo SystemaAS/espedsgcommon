@@ -390,7 +390,9 @@ public class DateTimeManager {
 		String HOUR_PREFIX = "0";
 		String retval = userTime;
 		if(userTime!=null && !"".equals(userTime) && userTime.length()<4){
-			if(userTime.length()==2){
+			if(userTime.length()==3){
+				retval = HOUR_PREFIX + userTime;
+			}else if(userTime.length()==2){
 				retval = userTime + MINUTES_SUFFIX;
 			}else if(userTime.length()==1){
 				retval = HOUR_PREFIX + userTime + MINUTES_SUFFIX;

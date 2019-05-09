@@ -26,7 +26,10 @@ public class DateValidator {
 	//private final String DATE_ISO_YYYYMMDD = "^\\d{4}\\d{2}\\d{2}$";
 	private final String DATE_ISO_YYYYMMDD = "^(19|20|99)\\d\\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])$";
 	//HHmm only
-	private final String TIME_HHmm = "(([0-1]?[0-9])|(2[0-3]))[0-5][0-9]"; //OK HH:mm
+	private final String TIME_HHmm = "(([0-1]?[0-9])|(2[0-3]))[0-5][0-9]"; //OK HHmm
+	//HHmm only
+	private final String TIME_HHmmss = "(([0-1]?[0-9])|(2[0-3]))[0-5][0-9][0-5][0-9]"; //OK HHmmss
+	
 	//
 	StringManager strMgr = new StringManager();
 	
@@ -81,6 +84,25 @@ public class DateValidator {
 			retval = true;
 		}else{
 			Pattern pattern = Pattern.compile(this.TIME_HHmm);
+			//check date pattern
+			Matcher matcher = pattern.matcher(str);
+			if (matcher.matches()){
+	    			//Now check if it is logically correct
+				retval = true;
+				//System.out.println("MATCH on dtm!");
+			}else{
+				//System.out.println("ERROR!");
+			}
+		}
+		return retval;
+    }
+    
+    public boolean validateTimeHHmmss(String str){
+		boolean retval = false;
+		if(str!=null && str.length()==2){
+			retval = true;
+		}else{
+			Pattern pattern = Pattern.compile(this.TIME_HHmmss);
 			//check date pattern
 			Matcher matcher = pattern.matcher(str);
 			if (matcher.matches()){
