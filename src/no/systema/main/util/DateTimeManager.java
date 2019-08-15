@@ -4,6 +4,9 @@
 package no.systema.main.util;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -531,4 +534,19 @@ public class DateTimeManager {
 		return retval;
 	}
 	
+	/**
+	 * 
+	 * @param date
+	 * @param dateMask
+	 * @return
+	 */
+	public Long getRangeOfDaysBetweenDates(String date, String dateMask){
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(dateMask);
+	    LocalDate startDate = LocalDate.parse(date, formatter);
+	    LocalDate endtDate = LocalDate.now();
+	    // Range = End date - Start date
+	    return ChronoUnit.DAYS.between(startDate, endtDate);
+	    //urlRequestParams.append("&dftdg=" + String.valueOf(range));
+    
+	}
 }

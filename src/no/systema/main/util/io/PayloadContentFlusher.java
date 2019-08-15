@@ -42,7 +42,7 @@ public class PayloadContentFlusher {
 	        URLConnection urlCon = url.openConnection();
 	
 	        if(urlCon !=null){
-	    			InputStream is = new BufferedInputStream(urlCon.getInputStream());
+	    		InputStream is = new BufferedInputStream(urlCon.getInputStream());
 	            byte[] buff = new byte[BYTE_BLOCK_SIZE];
 	            int bytesRead = 0;
 	
