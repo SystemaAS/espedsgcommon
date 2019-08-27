@@ -62,6 +62,18 @@ public class DateTimeManager {
 		int year = Calendar.getInstance().get(Calendar.YEAR);
 		return String.valueOf(year);
 	}
+	public String getDayNrOfYear(String date, String mask){
+		DateTimeFormatter f = DateTimeFormatter.ofPattern( mask ) ;
+		LocalDate ld = LocalDate.parse( date , f ) ;
+		String retval = String.valueOf(ld.getDayOfYear());
+		return retval;
+	}
+	public String getYear(String date, String mask){
+		DateTimeFormatter f = DateTimeFormatter.ofPattern( mask ) ;
+		LocalDate ld = LocalDate.parse( date , f ) ;
+		String retval = String.valueOf(ld.getYear());
+		return retval;
+	}
 	
 	public String getCurrentYear(){
 		String retval = null;
