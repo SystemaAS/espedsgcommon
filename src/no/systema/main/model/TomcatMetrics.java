@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class TomcatMetrics {
-	private String date;
-	private int logins;
-	private int hour;
-	private int totalSum;
+	private String date = "9999-01-01 00:00";
+	private int logins = 0;
+	private int hour = 0;
+	private int totalSum = 0;
 }
