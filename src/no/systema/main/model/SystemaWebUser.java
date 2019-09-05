@@ -63,6 +63,9 @@ public class SystemaWebUser {
 	
 	//TEST SUITES
 	public static final String ACTIVE_MENU_TEST_SUITES = "TEST_SUITES";
+	
+	//ALTINN RUNNER SUITES
+	public static final String ACTIVE_MENU_ALTINN_RUNNER_SUITES = "ALTINN_RUNNER_SUITES";
 		
 	//TRANSPORTDISP
 	public static final String ACTIVE_MENU_TRANSPORT_DISP = "TRANSPORT_DISP";
