@@ -63,7 +63,9 @@ public class SystemaWebUser {
 	
 	//TEST SUITES
 	public static final String ACTIVE_MENU_TEST_SUITES = "TEST_SUITES";
-	
+	//TPM Monitor
+	public static final String ACTIVE_MENU_TPM_MONITOR = "TPM_MONITOR";
+		
 	//ALTINN RUNNER SUITES
 	public static final String ACTIVE_MENU_ALTINN_RUNNER_SUITES = "ALTINN_RUNNER_SUITES";
 		
