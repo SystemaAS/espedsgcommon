@@ -198,4 +198,38 @@ public class StringManager {
 		return retval;
 	}
 	
+	/**
+	 * Cleans a file name from invalid characters
+	 * @param str
+	 * @return
+	 */
+	public String replaceInvalidCharsForFilename(String str){
+		String retval = str;
+		
+		String tmp =str;
+		
+		for (int i = 0; i < tmp.length(); i++) { 
+			char ch = tmp.charAt(i); 
+	        int ascii = (int) ch;
+	        if(ascii>=1 && ascii<=31){
+	        	//System.out.println("(a) Invalid char:" + (char)ascii);
+	        	tmp = str.replace(String.valueOf(ch), "");
+	        }
+		}
+		
+		//add as needed
+		tmp = tmp.replace("*","");
+		tmp = tmp.replace(":","");
+		tmp = tmp.replace("<","");
+		tmp = tmp.replace(">","");
+		tmp = tmp.replace("?","");
+		tmp = tmp.replace("\\","");
+		tmp = tmp.replace("/","");
+		tmp = tmp.replace("|","");
+				
+		retval = tmp;
+		
+		return retval;
+	}
+	
 }
