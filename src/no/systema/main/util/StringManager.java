@@ -216,8 +216,9 @@ public class StringManager {
 	        	tmp = str.replace(String.valueOf(ch), "");
 	        }
 		}
-		
+		//remove non-ASCII characters
 		tmp = tmp.replaceAll("[^\\p{ASCII}]", "");
+		//go on
 		tmp = tmp.replaceAll(" ","_");
 		tmp = tmp.replaceAll("\\*","");
 		tmp = tmp.replaceAll(":","");
