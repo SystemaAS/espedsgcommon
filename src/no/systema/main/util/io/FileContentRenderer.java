@@ -48,6 +48,8 @@ public class FileContentRenderer {
     			response.setContentType(AppConstants.HTML_CONTENTTYPE_WORD);
         }else if(AppConstants.DOCUMENTTYPE_XLS.equals(fileType)){
     			response.setContentType(AppConstants.HTML_CONTENTTYPE_EXCEL);
+        }else if(AppConstants.DOCUMENTTYPE_MSG.equals(fileType)){
+        		response.setContentType(AppConstants.HTML_CONTENTTYPE_MIME_MSG_OUTLOOK);
         }
         //--> with browser dialogbox: response.setHeader ("Content-disposition", "attachment; filename=\"edifactPayload.txt\"");
         response.setHeader ("Content-disposition", "filename=\"archiveDocument." + fileType + "\"");

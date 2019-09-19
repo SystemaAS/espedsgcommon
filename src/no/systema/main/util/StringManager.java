@@ -217,15 +217,15 @@ public class StringManager {
 	        }
 		}
 		
-		//add as needed
-		tmp = tmp.replace("*","");
-		tmp = tmp.replace(":","");
-		tmp = tmp.replace("<","");
-		tmp = tmp.replace(">","");
-		tmp = tmp.replace("?","");
-		tmp = tmp.replace("\\","");
-		tmp = tmp.replace("/","");
-		tmp = tmp.replace("|","");
+		tmp = tmp.replaceAll(" ","_");
+		tmp = tmp.replaceAll("\\*","");
+		tmp = tmp.replaceAll(":","");
+		tmp = tmp.replaceAll("<","");
+		tmp = tmp.replaceAll(">","");
+		tmp = tmp.replaceAll("\\?","");
+		tmp = tmp.replaceAll("\\\\","");
+		tmp = tmp.replaceAll("/","");
+		tmp = tmp.replaceAll("|","");
 				
 		retval = tmp;
 		

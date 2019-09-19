@@ -71,6 +71,8 @@ public final class AppConstants {
 	public static final String HTML_CONTENTTYPE_WORD = "application/msword";
 	public static final String HTML_CONTENTTYPE_EXCEL = "application/ms-excel";
 	public static final String HTML_CONTENTTYPE_ZIP = "application/zip";
+	public static final String HTML_CONTENTTYPE_MIME_MSG_OUTLOOK = "application/vnd.ms-outlook";
+	
 	
 	public static final String DOCUMENTTYPE_TXT = "txt";
 	public static final String DOCUMENTTYPE_LOG = "txt";
@@ -83,6 +85,7 @@ public final class AppConstants {
 	public static final String DOCUMENTTYPE_XLS = "xls";
 	public static final String DOCUMENTTYPE_XLSX = "xlsx";
 	public static final String DOCUMENTTYPE_CSV = "csv";
+	public static final String DOCUMENTTYPE_MSG = "msg";
 	
 	
 	//TDS-Login
