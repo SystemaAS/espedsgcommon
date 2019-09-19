@@ -217,6 +217,7 @@ public class StringManager {
 	        }
 		}
 		
+		tmp = tmp.replaceAll("[^\\p{ASCII}]", "");
 		tmp = tmp.replaceAll(" ","_");
 		tmp = tmp.replaceAll("\\*","");
 		tmp = tmp.replaceAll(":","");
