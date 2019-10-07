@@ -355,7 +355,8 @@ public class DateTimeManager {
 	public String getDateFormatted_NO(String value, String sourceDateMask){
 		String newDateString = value;
 		final String OLD_FORMAT = sourceDateMask;
-		if(value!=null && !"".equals(value)){
+		
+		if(value!=null && !"".equals(value) && !value.equals("0")){
 			try{
 				String oldDateString = value;
 	
