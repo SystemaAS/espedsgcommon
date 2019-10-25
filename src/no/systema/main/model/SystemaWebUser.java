@@ -218,6 +218,10 @@ public class SystemaWebUser {
 	public void setAuthorizedTvinnSadUserAS400(String value) {  this.authorizedTvinnSadUserAS400 = value; }
 	public String getAuthorizedTvinnSadUserAS400() { return this.authorizedTvinnSadUserAS400;}
 		
+	private String authorizedTulltaxaUserAS400 = null;
+	public void setAuthorizedTulltaxaUserAS400(String value) {  this.authorizedTulltaxaUserAS400 = value; }
+	public String getAuthorizedTulltaxaUserAS400() { return this.authorizedTulltaxaUserAS400;}
+	
 	
 	private String usrLang = "NO";
 	public void setUsrLang(String value) {  this.usrLang = value; }
