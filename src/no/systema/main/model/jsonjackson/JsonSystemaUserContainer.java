@@ -28,6 +28,11 @@ public class JsonSystemaUserContainer {
 	public void setCustNr(String value) {  this.custNr = value; }
 	public String getCustNr() { return this.custNr;}
 	
+	private String kundeL1 = null;
+	public void setKundeL1(String value) {  this.kundeL1 = value; }
+	public String getKundeL1() { return this.kundeL1;}
+	
+	
 	private String custName = null;
 	public void setCustName(String value) {  this.custName = value; }
 	public String getCustName() { return this.custName;}

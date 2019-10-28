@@ -118,6 +118,10 @@ public class SystemaWebUser {
 	public void setUser(String value) {  this.user = value; }
 	public String getUser() { return this.user;}
 	
+	private String kundeL1 = null;
+	public void setKundeL1(String value) {  this.kundeL1 = value; }
+	public String getKundeL1() { return this.kundeL1;}
+	
 	private String userName = null; 
 	public void setUserName(String value) {  this.userName = value; }
 	public String getUserName() { return this.userName;}
