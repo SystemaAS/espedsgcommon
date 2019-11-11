@@ -16,6 +16,7 @@ import no.systema.main.model.jsonjackson.general.JsonAbstractGrandFatherRecord;
 public class JsonMaintMainKundfRecord extends JsonMaintMainCundfRecord {
 	
 	//Delta
+	private String kundeL1;
 	private String land;
 	private String head;
 	private String feks;
