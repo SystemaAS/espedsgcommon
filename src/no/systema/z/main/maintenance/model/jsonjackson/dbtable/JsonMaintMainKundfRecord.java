@@ -15,12 +15,15 @@ import no.systema.main.model.jsonjackson.general.JsonAbstractGrandFatherRecord;
 @Data
 public class JsonMaintMainKundfRecord extends JsonMaintMainCundfRecord {
 	
+	
 	//Delta
 	private String kundeL1;
 	private String land;
 	private String head;
 	private String feks;
 	private String pkod;
+	private String kutdr;
+	private String khenv;
 	private String pgebyr;
 	private String daoaar;
 	private String daomnd;
@@ -28,10 +31,12 @@ public class JsonMaintMainKundfRecord extends JsonMaintMainCundfRecord {
 	//as Cundf but instead of inherited so that modelmapper works with one line
 	
 	
-	
 	private String kundetype;                                
-	private String kundnr;                                
-	private String firma;                                
+	private String kundnr; 
+	private String kundgr;                                
+	private String firma;   
+	private String aktkod;
+	private String dkund;
 	private String knavn;                                
 	private String adr1;                                
 	private String adr2;                                
@@ -45,9 +50,30 @@ public class JsonMaintMainKundfRecord extends JsonMaintMainCundfRecord {
 			return this.postnr;
 		}
 	}              
-
-	private String syrg;                                
-	private String syland;                                
+	private String sypoge;                                
+			
+	private String pnpbku;                                
+	private String syland;  
+	private String sonavn; 
+	private String syrg; 
+	private String spraak;                                
+	private String kpers; 
+	private String tlf;
+	private String tfaxnr; 
+	private String syepos;                                
+	private String valkod;                                
+	private String fmot;                                
+	private String bankg;                                
+	private String postg; 
+	private String betbet;                                
+	private String betmat;                                
+	private String sfakt;                                
+	private String kgrens;                                
+	private String syselg;                                
+	
+	
+	
+	/*
 	private String sykont;                                
 	public void setSykont (String value){ this.sykont = value;   }   
 	public String getSykont (){ 
@@ -59,26 +85,12 @@ public class JsonMaintMainKundfRecord extends JsonMaintMainCundfRecord {
 	}              
 
 	private String syfr02;                                
-	private String sonavn;                                
-	private String sypoge;                                
-	private String spraak;                                
 	private String eori;                                
-	private String pnpbku;                                
-	private String kpers;                                
-	private String tlf;                                
-	private String syepos;                                
+                               
 	private String systat;                                
-	private String valkod;                                
-	private String kundgr;                                
-	private String adr21;                                
-	private String fmot;                                
+	private String adr21;                                                               
 	private String fmotname;                                
-	private String bankg;                                
-	private String postg;                                
-	private String betbet;                                
-	private String betmat;                                
-	private String sfakt;                                
-	private String kgrens;                                
+                               
 	private String sysalu;                                
 	private String syfr03;                                
 	private String xxinm3;                                
@@ -94,7 +106,6 @@ public class JsonMaintMainKundfRecord extends JsonMaintMainCundfRecord {
 	private String aktkod;                                
 	private String dkund;                                
 	private String vatkku;                                
-	private String syselg;                                
 	private String aknrku;                                
 	private String syregn;
 	
