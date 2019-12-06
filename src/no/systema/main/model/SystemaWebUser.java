@@ -118,6 +118,18 @@ public class SystemaWebUser {
 	public void setUser(String value) {  this.user = value; }
 	public String getUser() { return this.user;}
 	
+	private String encryptedUser = null;
+	public void setEncryptedUser(String value) {  this.encryptedUser = value; }
+	public String getEncryptedUser() { return this.encryptedUser;}
+	
+	private String token = null; 
+	public void setToken(String value) {  this.token = value; }
+	public String getToken() { return this.token;}
+	
+	private String encryptedToken = null;
+	public void setEncryptedToken(String value) {  this.encryptedToken = value; }
+	public String getEncryptedToken() { return this.encryptedToken;}
+	
 	private String kundeL1 = null;
 	public void setKundeL1(String value) {  this.kundeL1 = value; }
 	public String getKundeL1() { return this.kundeL1;}
