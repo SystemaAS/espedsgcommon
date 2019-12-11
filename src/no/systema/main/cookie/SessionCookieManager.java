@@ -172,6 +172,7 @@ public class SessionCookieManager {
 		boolean retval = false;
 		//default (global cookie)
 		Map<String, String> cookie = this.getGlobalCookieToken( request);
+		//check for local cookies (if applicable)
 		if(!request.getRequestURI().startsWith(ENTRY_MODULE_PATH_ESPEDSG2)){
 			//local cookie
 			cookie = this.getLocalCookieToken(request);
