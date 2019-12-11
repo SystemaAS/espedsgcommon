@@ -170,6 +170,7 @@ public class SessionCookieManager {
 	 */
 	public boolean isAuthorized(String user, HttpServletRequest request){
 		boolean retval = false;
+		
 		//default (global cookie)
 		Map<String, String> cookie = this.getGlobalCookieToken( request);
 		//check for local cookies (if applicable)
