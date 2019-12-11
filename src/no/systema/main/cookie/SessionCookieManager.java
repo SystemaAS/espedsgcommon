@@ -144,10 +144,10 @@ public class SessionCookieManager {
 				String cookieSession = (String)cookie.get("session");
 		    	String cookieUser = (String)cookie.get("user");
 		    	/* DEBUG */
-		    	logger.warn("cookie:" + cookieSession);
-		    	logger.warn("cookie:" + cookieUser);
-		    	logger.warn("session:" + sessionId);
-		    	logger.warn("session usr:" + appUser.getUser());
+		    	logger.info("cookie:" + cookieSession);
+		    	logger.info("cookie:" + cookieUser);
+		    	logger.info("session:" + sessionId);
+		    	logger.info("session usr:" + appUser.getUser());
 		    	
 		    	
 		    	if(cookieSession!=null && cookieUser!=null){
