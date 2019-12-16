@@ -14,12 +14,17 @@ public class Tester {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		/*
 		DateTimeValidator validator = new DateTimeValidator();
 		System.out.println(validator.validateDate("20180228", "uuuuMMdd"));
 		System.out.println("");
 		DateValidator validatorOld = new DateValidator();
 		System.out.println(validatorOld.validateDate("20180228", "yyyyMMdd"));
+		*/
+		String absoluteFilePath = "ftp://xxx";
+		if(!new IPAddressValidator().isValidAbsoluteFilePathFor_RenderFile(absoluteFilePath)){
+			System.out.println("MATCH!");
+		}
 	}
 	
 }

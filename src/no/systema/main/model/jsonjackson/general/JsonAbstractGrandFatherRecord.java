@@ -3,6 +3,7 @@
  */
 package no.systema.main.model.jsonjackson.general;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.List;
 
@@ -26,7 +27,7 @@ import no.systema.main.util.MainDateFormatter;
  * @date Nov 7, 2013
  * 
  */
-public abstract class JsonAbstractGrandFatherRecord {
+public abstract class JsonAbstractGrandFatherRecord implements Serializable {
 	protected MainDateFormatter dateFormatter = new MainDateFormatter();
 	protected NumberFormatterLocaleAware numberFormatter = new NumberFormatterLocaleAware(); //Kilroy was here ;-)
 	

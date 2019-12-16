@@ -215,11 +215,13 @@ public class SessionCookieManager {
 	 * @param response
 	 */
 	public void removeAllCookies(HttpServletRequest request, HttpServletResponse response){
-		for (Cookie cookie : request.getCookies()) {
-		    cookie.setValue("");
-		    cookie.setMaxAge(0);
-		    cookie.setPath("/");
-		    response.addCookie(cookie);
+		if(request.getCookies()!=null){
+			for (Cookie cookie : request.getCookies()) {
+			    cookie.setValue("");
+			    cookie.setMaxAge(0);
+			    cookie.setPath("/");
+			    response.addCookie(cookie);
+			}
 		}
 	}
 }
