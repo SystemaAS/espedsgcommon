@@ -46,6 +46,8 @@ public class IPAddressValidator {
  		for (int i = 0; i < INVALID_PREFIXES.length; i++) { 
  		    if(absoluteFilePath!=null && absoluteFilePath.startsWith(INVALID_PREFIXES[i])){
  		    	retval = false;
+            }else if (absoluteFilePath!=null && absoluteFilePath.contains(INVALID_PREFIXES[i])){
+            	retval = false;
             }
         } 
  		
