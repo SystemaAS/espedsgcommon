@@ -17,7 +17,7 @@ public final class RequestWrapper extends HttpServletRequestWrapper {
 	}
 
 	public String[] getParameterValues(String parameter) {
-		logger.info("InarameterValues .. parameter .......");
+		logger.warn("InarameterValues .. parameter .......");
 		String[] values = super.getParameterValues(parameter);
 		if (values == null) {
 			return null;
