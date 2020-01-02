@@ -68,10 +68,12 @@ public class SessionCookieManager {
 		Map<String,String> retval = new HashMap<String, String>();
 		//logger.warn("JSESSIONID:" + request.getSession().getId());
 		
-		for(Cookie cookie : request.getCookies()){
-			//logger.warn(cookie.getName());
-			if(cookie.getName().equals(this.tokenId1)){
-				retval = this.aesManager.decryptBearer(cookie.getValue());
+		if(request!=null && request.getCookies()!=null){
+			for(Cookie cookie : request.getCookies()){
+				//logger.warn(cookie.getName());
+				if(cookie.getName().equals(this.tokenId1)){
+					retval = this.aesManager.decryptBearer(cookie.getValue());
+				}
 			}
 		}
 		
@@ -136,25 +138,30 @@ public class SessionCookieManager {
 	 */
 	public boolean isAuthorized (Map<String, String> cookie, HttpServletRequest request){
 		boolean retval = false;
+		SystemaWebUser appUser = null;
+		String sessionId = null;
+		
 		try{
-			SystemaWebUser appUser = (SystemaWebUser)request.getSession().getAttribute(AppConstants.SYSTEMA_WEB_USER_KEY);
-			String sessionId = request.getSession().getId();
-			//
-			if(cookie!=null){
-				String cookieSession = (String)cookie.get("session");
-		    	String cookieUser = (String)cookie.get("user");
-		    	/* DEBUG */
-		    	logger.info("cookie:" + cookieSession);
-		    	logger.info("cookie:" + cookieUser);
-		    	logger.info("session:" + sessionId);
-		    	logger.info("session usr:" + appUser.getUser());
-		    	
-		    	
-		    	if(cookieSession!=null && cookieUser!=null){
-			    	if(cookieSession.equals(sessionId) && cookieUser.equals(appUser.getUser())){
-			    		retval = true;
+			if(request!=null && request.getSession() !=null ){
+				appUser = (SystemaWebUser)request.getSession().getAttribute(AppConstants.SYSTEMA_WEB_USER_KEY);
+				sessionId = request.getSession().getId();
+				//
+				if(cookie!=null && appUser!=null){
+					String cookieSession = (String)cookie.get("session");
+			    	String cookieUser = (String)cookie.get("user");
+			    	/* DEBUG */
+			    	logger.info("cookie:" + cookieSession);
+			    	logger.info("cookie:" + cookieUser);
+			    	logger.info("session:" + sessionId);
+			    	logger.info("session usr:" + appUser.getUser());
+			    	
+			    	
+			    	if(cookieSession!=null && cookieUser!=null){
+				    	if(cookieSession.equals(sessionId) && cookieUser.equals(appUser.getUser())){
+				    		retval = true;
+				    	}
 			    	}
-		    	}
+				}
 			}
 		}catch(Exception e){
 			logger.fatal(e.toString());
