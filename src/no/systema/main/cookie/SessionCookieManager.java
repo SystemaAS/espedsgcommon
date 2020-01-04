@@ -18,7 +18,7 @@ import no.systema.main.util.AppConstants;
 @Data
 public class SessionCookieManager {
 	private static final Logger logger = Logger.getLogger(SessionCookieManager.class.getName());
-	private static int TIME_OUT_VALUE_IN_SECONDS = 1800;
+	private static int TIME_OUT_VALUE_IN_SECONDS = 3600;
 	private final String ENTRY_MODULE_PATH_ESPEDSG2 = "/espedsg2/";
 	public String tokenId1 = "TUID1";
 	public String tokenId2 = "TUID2";
