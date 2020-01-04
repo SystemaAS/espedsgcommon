@@ -31,9 +31,8 @@ public class CookieAuthorizationInterceptor extends HandlerInterceptorAdapter {
 		//default cookie
 		Map<String,String> cookie = cookieMgr.getGlobalCookieToken(request);
 		logger.warn(request.getRequestURI());
-    	
-		//logger.warn(cookie);
-    	if(!request.getRequestURI().startsWith(cookieMgr.getENTRY_MODULE_PATH_ESPEDSG2())){
+    	//logger.warn(cookie);
+    	if(cookieMgr.isValidForLocalCookies(request)){
     		//when moving to another module (.war)
     		cookie = cookieMgr.getLocalCookieToken(request);
     		//logger.warn(cookie);

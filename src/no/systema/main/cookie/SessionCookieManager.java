@@ -20,6 +20,7 @@ public class SessionCookieManager {
 	private static final Logger logger = Logger.getLogger(SessionCookieManager.class.getName());
 	private static int TIME_OUT_VALUE_IN_SECONDS = 3600;
 	private final String ENTRY_MODULE_PATH_ESPEDSG2 = "/espedsg2/";
+	
 	public String tokenId1 = "TUID1";
 	public String tokenId2 = "TUID2";
 	//
@@ -160,6 +161,14 @@ public class SessionCookieManager {
 				    	if(cookieSession.equals(sessionId) && cookieUser.equals(appUser.getUser())){
 				    		retval = true;
 				    	}
+				    	/*
+				    	else{
+				    		if(!this.isValidForLocalCookies(request)){
+				    			if(cookieUser.equals(appUser.getUser())){
+				    				retval = true;
+				    			}
+				    		}
+				    	}*/
 			    	}
 				}
 			}
@@ -181,7 +190,8 @@ public class SessionCookieManager {
 		//default (global cookie)
 		Map<String, String> cookie = this.getGlobalCookieToken( request);
 		//check for local cookies (if applicable)
-		if(!request.getRequestURI().startsWith(ENTRY_MODULE_PATH_ESPEDSG2)){
+		
+		if(this.isValidForLocalCookies(request)){
 			//local cookie
 			cookie = this.getLocalCookieToken(request);
 		}
@@ -230,5 +240,21 @@ public class SessionCookieManager {
 			    response.addCookie(cookie);
 			}
 		}
+	}
+	
+	/**
+	 * This method returns those URIs required to have a localCookie.
+	 * (1) espedsg2 is the parent globalCookie and therefore not valid for a localCookie
+	 * 
+	 * @param request
+	 * @return
+	 */
+	public boolean isValidForLocalCookies(HttpServletRequest request){
+		boolean retval = true;
+		if(request.getRequestURI().startsWith(this.getENTRY_MODULE_PATH_ESPEDSG2())){
+    		retval = false;
+    	}
+		
+		return retval;
 	}
 }

@@ -17,7 +17,7 @@ public final class RequestWrapper extends HttpServletRequestWrapper {
 	}
 
 	public String[] getParameterValues(String parameter) {
-		logger.warn("InarameterValues .. parameter .......");
+		logger.debug("InarameterValues .. parameter .......");
 		String[] values = super.getParameterValues(parameter);
 		if (values == null) {
 			return null;
@@ -31,21 +31,21 @@ public final class RequestWrapper extends HttpServletRequestWrapper {
 	}
 
 	public String getParameter(String parameter) {
-		logger.info("Inarameter .. parameter .......");
+		logger.debug("Inarameter .. parameter .......");
 		String value = super.getParameter(parameter);
 		if (value == null) {
 			return null;
 		}
-		logger.info("Inarameter RequestWrapper ........ value .......");
+		logger.debug("Inarameter RequestWrapper ........ value .......");
 		return cleanXSS(value);
 	}
 
 	public String getHeader(String name) {
-		logger.info("Ineader .. parameter .......");
+		logger.debug("Ineader .. parameter .......");
 		String value = super.getHeader(name);
 		if (value == null)
 			return null;
-		logger.info("Ineader RequestWrapper ........... value ....");
+		logger.debug("Ineader RequestWrapper ........... value ....");
 		return cleanXSS(value);
 	}
 
