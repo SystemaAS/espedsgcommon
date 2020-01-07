@@ -21,11 +21,20 @@ public class SessionCookieManager {
 	private static int TIME_OUT_VALUE_IN_SECONDS = 3600;
 	private final String ENTRY_MODULE_PATH_ESPEDSG2 = "/espedsg2/";
 	
-	public String tokenId1 = "TUID1";
-	public String tokenId2 = "TUID2";
+	private String tokenId1 = "TUID1";
+	private String tokenId2 = "TUID2";
+	private String tokenId2Suffix = "";
 	//
 	private AesEncryptionDecryptionManager aesManager = new AesEncryptionDecryptionManager();
 	
+	//this is used when the strategy for every single local module is to have a token called: TUID2 for all local modules (currently used)
+	public SessionCookieManager(){  }
+	
+	//this could be used if the strategy for every single local module is to have a unique TUID2_<x-name>. Future used ??? since we kan have 3-levels 
+	//with some modules (espedsgstats calling espedsgtvinnsad for example)
+	public SessionCookieManager(HttpServletRequest request){ 
+		this.tokenId2Suffix = this.getLocalCookieTokenSuffix(request);
+	}
 	
 	/**
 	 * 
@@ -50,8 +59,10 @@ public class SessionCookieManager {
 	 * @param response
 	 */
 	public void addLocalCookieToken(String cookieValue, HttpServletResponse response){
+		String cookieName = this.tokenId2;
+		if(this.tokenId2Suffix.equals("")){ cookieName=this.tokenId2 + this.tokenId2Suffix; }
 		
-		Cookie cookie = new Cookie(this.tokenId2, cookieValue);
+		Cookie cookie = new Cookie(cookieName, cookieValue);
     	cookie.setMaxAge(TIME_OUT_VALUE_IN_SECONDS);
     	cookie.setHttpOnly(true);
     	cookie.setSecure(true);
@@ -91,8 +102,11 @@ public class SessionCookieManager {
 		//logger.warn("JSESSIONID:" + request.getSession().getId());
 		
 		for(Cookie cookie : request.getCookies()){
-			//logger.warn(cookie.getName());
-			if(cookie.getName().equals(this.tokenId2)){
+			logger.warn(cookie.getName());
+			String cookieName = this.tokenId2;
+			if(this.tokenId2Suffix.equals("")){ cookieName=this.tokenId2 + this.tokenId2Suffix; }
+			
+			if(cookie.getName().equals(cookieName)){
 				retval = this.aesManager.decryptBearer(cookie.getValue());
 			}
 		}
@@ -122,7 +136,10 @@ public class SessionCookieManager {
 	 * @param response
 	 */
 	public void removeLocalCookie(HttpServletResponse response){
-		Cookie cookie = new Cookie(this.tokenId2, null);
+		String cookieName = this.tokenId2;
+		if(this.tokenId2Suffix.equals("")){ cookieName=this.tokenId2 + this.tokenId2Suffix; }
+		
+		Cookie cookie = new Cookie(cookieName, null);
     	cookie.setMaxAge(0);
     	cookie.setHttpOnly(true);
     	cookie.setSecure(true);
@@ -161,14 +178,7 @@ public class SessionCookieManager {
 				    	if(cookieSession.equals(sessionId) && cookieUser.equals(appUser.getUser())){
 				    		retval = true;
 				    	}
-				    	/*
-				    	else{
-				    		if(!this.isValidForLocalCookies(request)){
-				    			if(cookieUser.equals(appUser.getUser())){
-				    				retval = true;
-				    			}
-				    		}
-				    	}*/
+				    	
 			    	}
 				}
 			}
@@ -254,6 +264,27 @@ public class SessionCookieManager {
 		if(request.getRequestURI().startsWith(this.getENTRY_MODULE_PATH_ESPEDSG2())){
     		retval = false;
     	}
+		
+		return retval;
+	}
+	
+	/**
+	 * Gives a unique identifier to a specific local token. All local token start with TUID2.
+	 * The suffix will give a unique name e.g.: TUID2_espedsg2, TUID2_espedsgmmaint, TUID2_espedsgtds, etc
+	 * 
+	 * To be used instead for TUID2 alone. Under review !!!
+	 * 
+	 * @param request
+	 * @return
+	 */
+	public String getLocalCookieTokenSuffix(HttpServletRequest request){
+		String suffixSeparator = "_";
+		String retval = "";
+		
+		String value = request.getRequestURI();
+		//now search for the second "/" (ergo: 0+1) in string: "/espedsgmmaint/..." for example 
+		int index = value.indexOf("/", 1);
+		retval = suffixSeparator + value.substring(1, index);
 		
 		return retval;
 	}
