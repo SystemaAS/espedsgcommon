@@ -1,5 +1,6 @@
 package no.systema.main.cookie;
 
+import java.util.Enumeration;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +28,7 @@ public class CookieAuthorizationInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request,HttpServletResponse response, Object handler) throws Exception {
 		
-		SessionCookieManager cookieMgr = new SessionCookieManager();
+		SessionCookieManager cookieMgr = new SessionCookieManager(request);
 		//default cookie
 		Map<String,String> cookie = cookieMgr.getGlobalCookieToken(request);
 		logger.warn(request.getRequestURI());
@@ -37,6 +38,7 @@ public class CookieAuthorizationInterceptor extends HandlerInterceptorAdapter {
     		cookie = cookieMgr.getLocalCookieToken(request);
     		//logger.warn(cookie);
     	}
+    	
     	
     	boolean isAuthorized = false;
     	try{

@@ -24,16 +24,16 @@ public class SessionCookieManager {
 	private String tokenId1 = "TUID1";
 	private String tokenId2 = "TUID2";
 	private String tokenId2Suffix = "";
+	private boolean httpsProtocol = false;
 	//
 	private AesEncryptionDecryptionManager aesManager = new AesEncryptionDecryptionManager();
-	
-	//this is used when the strategy for every single local module is to have a token called: TUID2 for all local modules (currently used)
-	public SessionCookieManager(){  }
 	
 	//this could be used if the strategy for every single local module is to have a unique TUID2_<x-name>. Future used ??? since we kan have 3-levels 
 	//with some modules (espedsgstats calling espedsgtvinnsad for example)
 	public SessionCookieManager(HttpServletRequest request){ 
-		this.tokenId2Suffix = this.getLocalCookieTokenSuffix(request);
+		//this should be uncomment if we change localCookie-Strategy
+		//this.tokenId2Suffix = this.getLocalCookieTokenSuffix(request);
+		this.httpsProtocol = request.getRequestURL().toString().contains("https://");
 	}
 	
 	/**
@@ -47,9 +47,13 @@ public class SessionCookieManager {
 		Cookie cookie = new Cookie(this.tokenId1, cookieValue);
     	cookie.setMaxAge(TIME_OUT_VALUE_IN_SECONDS);
     	cookie.setHttpOnly(true);
-    	cookie.setSecure(true);
-    	// global cookie accessible every where
-    	cookie.setPath("/"); 
+    	//web.xml has not this as default since we must be able to handle http (not secure) as a fall-back
+    	if(this.httpsProtocol){
+    		cookie.setSecure(true);
+    	}	
+    	//global cookie accessible every where
+    	cookie.setPath("/");
+    	logger.warn(cookie);
     	response.addCookie(cookie);
 		
 	}
@@ -60,12 +64,15 @@ public class SessionCookieManager {
 	 */
 	public void addLocalCookieToken(String cookieValue, HttpServletResponse response){
 		String cookieName = this.tokenId2;
-		if(this.tokenId2Suffix.equals("")){ cookieName=this.tokenId2 + this.tokenId2Suffix; }
+		if(!this.tokenId2Suffix.equals("")){ cookieName=this.tokenId2 + this.tokenId2Suffix; }
 		
 		Cookie cookie = new Cookie(cookieName, cookieValue);
     	cookie.setMaxAge(TIME_OUT_VALUE_IN_SECONDS);
     	cookie.setHttpOnly(true);
-    	cookie.setSecure(true);
+    	//web.xml has not this as default since we must be able to handle http (not secure) as a fall-back
+    	if(this.httpsProtocol){
+    		cookie.setSecure(true);
+    	}	
     	response.addCookie(cookie);
 		
 	}
@@ -103,8 +110,9 @@ public class SessionCookieManager {
 		
 		for(Cookie cookie : request.getCookies()){
 			logger.warn(cookie.getName());
+			//default
 			String cookieName = this.tokenId2;
-			if(this.tokenId2Suffix.equals("")){ cookieName=this.tokenId2 + this.tokenId2Suffix; }
+			if(!this.tokenId2Suffix.equals("")){ cookieName=this.tokenId2 + this.tokenId2Suffix; }
 			
 			if(cookie.getName().equals(cookieName)){
 				retval = this.aesManager.decryptBearer(cookie.getValue());
@@ -125,7 +133,6 @@ public class SessionCookieManager {
 		Cookie cookie = new Cookie(this.tokenId1, null);
     	cookie.setMaxAge(0);
     	cookie.setHttpOnly(true);
-    	cookie.setSecure(true);
     	// global cookie accessible every where
     	cookie.setPath("/"); 
     	response.addCookie(cookie);
@@ -137,12 +144,11 @@ public class SessionCookieManager {
 	 */
 	public void removeLocalCookie(HttpServletResponse response){
 		String cookieName = this.tokenId2;
-		if(this.tokenId2Suffix.equals("")){ cookieName=this.tokenId2 + this.tokenId2Suffix; }
+		if(!this.tokenId2Suffix.equals("")){ cookieName=this.tokenId2 + this.tokenId2Suffix; }
 		
 		Cookie cookie = new Cookie(cookieName, null);
     	cookie.setMaxAge(0);
     	cookie.setHttpOnly(true);
-    	cookie.setSecure(true);
     	response.addCookie(cookie);
 		
 	}
@@ -285,7 +291,7 @@ public class SessionCookieManager {
 		//now search for the second "/" (ergo: 0+1) in string: "/espedsgmmaint/..." for example 
 		int index = value.indexOf("/", 1);
 		retval = suffixSeparator + value.substring(1, index);
-		
+
 		return retval;
 	}
 }
