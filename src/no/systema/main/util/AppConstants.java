@@ -36,6 +36,8 @@ public final class AppConstants {
 	public static final String CSS_ESPEDSG_MAINTENANCE = ApplicationPropertiesUtil.getProperty("css.espedsg.maintenance");
 	//login firma code required
 	public static final String LOGIN_FIRMA_CODE_REQUIRED = ApplicationPropertiesUtil.getProperty("login.firma.code.required");
+	public static final String LOGIN_RECAPTCHA_SITE_KEY = ApplicationPropertiesUtil.getProperty("login.recaptcha.site.key");
+	public static final String LOGIN_RECAPTCHA_SECRET_KEY = ApplicationPropertiesUtil.getProperty("login.recaptcha.secret.key");
 	
 	//session constants
 	public static final String SYSTEMA_WEB_USER_KEY = "user";

@@ -182,8 +182,13 @@ public class SystemaWebUser {
 	public void setCssLeafImgWidth(String value) {  this.cssLeafImgWidth = value; }
 	public String getCssLeafImgWidth() { return this.cssLeafImgWidth;}
 	
+	private String recaptchaSiteKey = null; 
+	public void setRecaptchaSiteKey(String value) {  this.recaptchaSiteKey = value; }
+	public String getRecaptchaSiteKey() { return this.recaptchaSiteKey;}
 	
-	
+	private String recaptchaSecretKey = null; 
+	public void setRecaptchaSecretKey(String value) {  this.recaptchaSecretKey = value; }
+	public String getRecaptchaSecretKey() { return this.recaptchaSecretKey;}
 	
 	
 	private String tomcatPort = null; 

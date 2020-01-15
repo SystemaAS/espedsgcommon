@@ -44,7 +44,14 @@ public class ApplicationPropertiesUtil extends PropertyPlaceholderConfigurer {
         }
     }
     
+    
     public static String getProperty(String name) {
-    	return propertiesMap.get(name).toString();
+    	String propertyName = "";
+    	try{
+    		propertyName = propertiesMap.get(name).toString();
+    	}catch(Exception e){
+    		e.toString();
+    	}
+    	return propertyName;
     }
 }
