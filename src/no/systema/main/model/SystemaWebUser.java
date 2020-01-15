@@ -170,6 +170,22 @@ public class SystemaWebUser {
 	public void setCssEspedsgTestersuite(String value) {  this.cssEspedsgTestersuite = value; }
 	public String getCssEspedsgTestersuite() { return this.cssEspedsgTestersuite;}
 	
+	private String cssLeafImg = "leaf.png"; 
+	public void setCssLeafImg(String value) {  this.cssLeafImg = value; }
+	public String getCssLeafImg() { return this.cssLeafImg;}
+	
+	private String cssLeafImgHeight = "30px"; 
+	public void setCssLeafImgHeight(String value) {  this.cssLeafImgHeight = value; }
+	public String getCssLeafImgHeight() { return this.cssLeafImgHeight;}
+	
+	private String cssLeafImgWidth = "30px"; 
+	public void setCssLeafImgWidth(String value) {  this.cssLeafImgWidth = value; }
+	public String getCssLeafImgWidth() { return this.cssLeafImgWidth;}
+	
+	
+	
+	
+	
 	private String tomcatPort = null; 
 	public void setTomcatPort(String value) {  this.tomcatPort = value; }
 	public String getTomcatPort() { return this.tomcatPort;}
