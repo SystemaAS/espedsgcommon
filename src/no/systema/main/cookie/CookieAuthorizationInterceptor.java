@@ -24,6 +24,7 @@ import no.systema.main.util.AppConstants;
  */
 public class CookieAuthorizationInterceptor extends HandlerInterceptorAdapter {
 	private static final Logger logger = Logger.getLogger(CookieAuthorizationInterceptor.class.getName());
+	private final String ENTRY_MODULE_PATH_ESPEDSG2 = "/espedsg2/";
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request,HttpServletResponse response, Object handler) throws Exception {
@@ -43,15 +44,32 @@ public class CookieAuthorizationInterceptor extends HandlerInterceptorAdapter {
     	boolean isAuthorized = false;
     	try{
     		//(1) Check first if the user is already logged in
-    			if(cookie!=null){
-	    			isAuthorized = cookieMgr.isAuthorized(cookie, request);
-	    		}
-    	
+    		if(cookie!=null){
+	    		isAuthorized = cookieMgr.isAuthorized(cookie, request);
+	   		}else{
+	   			logger.warn("unauthorized ...");
+	   			response.sendRedirect("login.do");
+	   		}
     	}catch(Exception e){
-    		logger.warn(e.toString());
+    		logger.warn("unauthorized ...");
+   			response.sendRedirect("login.do");
+   			logger.warn(e.toString());
+    		
     	}
-		
-	    return isAuthorized;
+    	logger.warn(isAuthorized);
+    	
+    	
+    	//this redirect is necessary in order to avoid blank sites ... and send the user to the necessary start point (if applicable)
+    	if(!isAuthorized){ 
+    		if(request.getRequestURI().startsWith(this.ENTRY_MODULE_PATH_ESPEDSG2)){
+    			response.sendRedirect("login.do");
+    		}else{
+    			response.sendRedirect("/espedsg2/dashboard.do");
+    		}
+    	}
+    	
+    	return isAuthorized;
+    	
 	}
 	
 }
