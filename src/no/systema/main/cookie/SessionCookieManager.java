@@ -45,7 +45,7 @@ public class SessionCookieManager {
 	public void addGlobalCookieToken(String cookieValue, HttpServletResponse response){
 		
 		Cookie cookie = new Cookie(this.tokenId1, cookieValue);
-    	cookie.setMaxAge(TIME_OUT_VALUE_IN_SECONDS);
+    	//removed to avoid time-out--->cookie.setMaxAge(TIME_OUT_VALUE_IN_SECONDS);
     	cookie.setHttpOnly(true);
     	//web.xml has not this as default since we must be able to handle http (not secure) as a fall-back
     	if(this.httpsProtocol){
@@ -67,7 +67,7 @@ public class SessionCookieManager {
 		if(!this.tokenId2Suffix.equals("")){ cookieName=this.tokenId2 + this.tokenId2Suffix; }
 		
 		Cookie cookie = new Cookie(cookieName, cookieValue);
-    	cookie.setMaxAge(TIME_OUT_VALUE_IN_SECONDS);
+    	////removed to avoid time-out--->cookie.setMaxAge(TIME_OUT_VALUE_IN_SECONDS);
     	cookie.setHttpOnly(true);
     	//web.xml has not this as default since we must be able to handle http (not secure) as a fall-back
     	if(this.httpsProtocol){
