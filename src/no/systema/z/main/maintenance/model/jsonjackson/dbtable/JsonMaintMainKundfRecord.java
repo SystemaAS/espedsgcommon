@@ -22,9 +22,11 @@ public class JsonMaintMainKundfRecord extends JsonMaintMainCundfRecord {
 	private String head;
 	private String feks;
 	private String pkod;
+	private String rkod;
 	private String kutdr;
 	private String khenv;
 	private String pgebyr;
+	private String kverd;
 	private String daoaar;
 	private String daomnd;
 	private String daodag;

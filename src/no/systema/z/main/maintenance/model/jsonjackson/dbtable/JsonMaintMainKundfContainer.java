@@ -33,10 +33,24 @@ public class JsonMaintMainKundfContainer {
 	private String l1_DaoAar;	//Dato opprettet År (4) number
 	private String l1_DaoMnd;	//Dato opprettet Mnd (2) number
 	private String l1_DaoDag;	//Dato opprettet Dag (2) number
+	private String l1_Rkod; //Rentekode
+	private String l1_Ledi20; //Dato Oppr
+	
 	private String errMsg;
 	
+	
+
 	private Collection<JsonMaintMainKundfRecord> list;
 	public void setList(Collection<JsonMaintMainKundfRecord> value){ this.list = value; }
 	public Collection<JsonMaintMainKundfRecord> getList(){ return list; }
+	
+	private Collection<JsonMaintMainKundfRecordL1AuxList> l1_KhenvList;
+	public void setL1_KhenvList(Collection<JsonMaintMainKundfRecordL1AuxList> value){ this.l1_KhenvList = value; }
+	public Collection<JsonMaintMainKundfRecordL1AuxList> getL1_KhenvList(){ return l1_KhenvList; }
+	
+	private Collection<JsonMaintMainKundfRecordL1AuxList> l1_KgrupList;
+	public void setL1_KgrupList(Collection<JsonMaintMainKundfRecordL1AuxList> value){ this.l1_KgrupList = value; }
+	public Collection<JsonMaintMainKundfRecordL1AuxList> getL1_KgrupList(){ return l1_KgrupList; }
+	
 	
 }
