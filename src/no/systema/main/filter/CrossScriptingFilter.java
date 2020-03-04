@@ -27,11 +27,14 @@ public class CrossScriptingFilter implements Filter {
         this.filterConfig = null;
     }
 
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-        throws IOException, ServletException {
-    	logger.info("Inlter CrossScriptingFilter  ...");
-        chain.doFilter(new RequestWrapper((HttpServletRequest) request), response);
-        logger.info("Outlter CrossScriptingFilter ...");
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain){
+    	try{
+    		logger.info("Inlter CrossScriptingFilter  ...");
+    		chain.doFilter(new RequestWrapper((HttpServletRequest) request), response);
+    		logger.info("Outlter CrossScriptingFilter ...");
+    	}catch(Exception e){
+    		logger.warn(e.toString());
+    	}
     }
 
 }
