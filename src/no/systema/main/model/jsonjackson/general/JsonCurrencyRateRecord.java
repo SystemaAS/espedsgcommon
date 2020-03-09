@@ -13,6 +13,10 @@ import java.util.List;
  */
 public class JsonCurrencyRateRecord {
 	//TDS
+	private String ownkod = null;
+	public void setOwnkod(String value){ this.ownkod = value;}
+	public String getOwnkod(){ return this.ownkod; }
+	
 	private String svvs_omr = null;
 	public void setSvvs_omr(String value){ this.svvs_omr = value;}
 	public String getSvvs_omr(){ return this.svvs_omr; }
