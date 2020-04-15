@@ -48,8 +48,12 @@ public class IPAddressValidator {
  		    	retval = false;
  		    	break;
             }else if (absoluteFilePath!=null && absoluteFilePath.contains(INVALID_PREFIXES[i])){
-            	retval = false;
-            	break;
+            	String tmp = INVALID_PREFIXES[i];
+            	if(tmp.equals("file") && !absoluteFilePath.contains("/resources/files/")){
+            		//resources/files is a reserved path for local documentation (pdfs under the resources directory)
+            		retval = false;
+            		break;
+            	}
             }
         } 
  		
