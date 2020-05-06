@@ -8,6 +8,8 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 
 /**
@@ -27,13 +29,14 @@ public class CrossScriptingFilter implements Filter {
         this.filterConfig = null;
     }
 
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain){
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException{
     	try{
     		logger.info("Inlter CrossScriptingFilter  ...");
     		chain.doFilter(new RequestWrapper((HttpServletRequest) request), response);
     		logger.info("Outlter CrossScriptingFilter ...");
     	}catch(Exception e){
-    		logger.warn(e.toString());
+    		logger.error(e.toString());
+    		throw e;
     	}
     }
 
