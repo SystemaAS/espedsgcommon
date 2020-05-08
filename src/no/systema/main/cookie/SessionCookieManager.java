@@ -45,17 +45,25 @@ public class SessionCookieManager {
 	public void addGlobalCookieToken(String cookieValue, HttpServletResponse response){
 		
 		Cookie cookie = new Cookie(this.tokenId1, cookieValue);
-    	//removed to avoid time-out--->cookie.setMaxAge(TIME_OUT_VALUE_IN_SECONDS);
-    	cookie.setHttpOnly(true);
-    	//web.xml has not this as default since we must be able to handle http (not secure) as a fall-back
-    	if(this.httpsProtocol){
-    		cookie.setSecure(true);
-    	}	
+    	setSecureCookie(cookie);
     	//global cookie accessible every where
     	cookie.setPath("/");
     	logger.warn(cookie);
     	response.addCookie(cookie);
 		
+	}
+	private void setSecureCookie(Cookie cookie){
+		//web.xml has not this as default since we must be able to handle http (not secure) as a fall-back
+    	if(this.httpsProtocol){
+    		//removed to avoid time-out--->cookie.setMaxAge(TIME_OUT_VALUE_IN_SECONDS);
+        	cookie.setHttpOnly(true);
+        	cookie.setSecure(true);
+    	}
+	}
+	private void removeSecureCookie(Cookie cookie){
+		//web.xml has not this as default since we must be able to handle http (not secure) as a fall-back
+    		cookie.setHttpOnly(false);
+        	cookie.setSecure(false);
 	}
 	/**
 	 * 
@@ -67,12 +75,7 @@ public class SessionCookieManager {
 		if(!this.tokenId2Suffix.equals("")){ cookieName=this.tokenId2 + this.tokenId2Suffix; }
 		
 		Cookie cookie = new Cookie(cookieName, cookieValue);
-    	////removed to avoid time-out--->cookie.setMaxAge(TIME_OUT_VALUE_IN_SECONDS);
-    	cookie.setHttpOnly(true);
-    	//web.xml has not this as default since we must be able to handle http (not secure) as a fall-back
-    	if(this.httpsProtocol){
-    		cookie.setSecure(true);
-    	}	
+		setSecureCookie(cookie);
     	response.addCookie(cookie);
 		
 	}
@@ -132,7 +135,7 @@ public class SessionCookieManager {
 	public void removeGlobalCookie(HttpServletResponse response){
 		Cookie cookie = new Cookie(this.tokenId1, null);
     	cookie.setMaxAge(0);
-    	cookie.setHttpOnly(true);
+    	this.removeSecureCookie(cookie);
     	// global cookie accessible every where
     	cookie.setPath("/"); 
     	response.addCookie(cookie);
@@ -148,7 +151,7 @@ public class SessionCookieManager {
 		
 		Cookie cookie = new Cookie(cookieName, null);
     	cookie.setMaxAge(0);
-    	cookie.setHttpOnly(true);
+    	this.removeSecureCookie(cookie);
     	response.addCookie(cookie);
 		
 	}
@@ -294,4 +297,6 @@ public class SessionCookieManager {
 
 		return retval;
 	}
+	
+	
 }
