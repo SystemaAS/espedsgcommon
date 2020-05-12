@@ -25,6 +25,7 @@ public class SessionCookieManager {
 	private String tokenId2 = "TUID2";
 	private String tokenId2Suffix = "";
 	private boolean httpsProtocol = false;
+	private HttpServletRequest httpRequest;
 	//
 	private AesEncryptionDecryptionManager aesManager = new AesEncryptionDecryptionManager();
 	
@@ -32,7 +33,7 @@ public class SessionCookieManager {
 	//with some modules (espedsgstats calling espedsgtvinnsad for example)
 	public SessionCookieManager(HttpServletRequest request){ 
 		//this should be uncomment if we change localCookie-Strategy
-		//this.tokenId2Suffix = this.getLocalCookieTokenSuffix(request);
+		this.httpRequest = request;
 		this.httpsProtocol = request.getRequestURL().toString().contains("https://");
 	}
 	
@@ -52,6 +53,11 @@ public class SessionCookieManager {
     	response.addCookie(cookie);
 		
 	}
+	/**
+	 * 1) All SaaS customers on Systemas maskin should ONLY have https- access (requirement for WiseTech Penetration tests)
+	 * 2) External customers must be able to handle both: http and https (DHL,Bring,etc). This will exclude them from this secure flags.
+	 * @param cookie
+	 */
 	private void setSecureCookie(Cookie cookie){
 		//web.xml has not this as default since we must be able to handle http (not secure) as a fall-back
     	if(this.httpsProtocol){
