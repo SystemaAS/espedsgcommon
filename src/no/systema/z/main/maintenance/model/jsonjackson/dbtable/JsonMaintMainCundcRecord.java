@@ -10,6 +10,7 @@ import no.systema.main.model.jsonjackson.general.JsonAbstractGrandFatherRecord;
 
 public class JsonMaintMainCundcRecord extends JsonAbstractGrandFatherRecord {
 
+	private String rownum = null;
 	private String ccompn = null; // key
 	private String cfirma = null; // key
 	private String cconta = null; // key
@@ -1121,6 +1122,13 @@ public class JsonMaintMainCundcRecord extends JsonAbstractGrandFatherRecord {
 		this.ctypeorg = ctypeorg;
 	}
 	
+	public String getRownum() {
+		return rownum;
+	}
+
+	public void setRownum(String rownum) {
+		this.rownum = rownum;
+	}
 	
 
 }
