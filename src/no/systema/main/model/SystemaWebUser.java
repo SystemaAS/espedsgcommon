@@ -325,6 +325,19 @@ public class SystemaWebUser {
 	public void setAsavd(String value) {  this.asavd = value; }
 	public String getAsavd() { return this.asavd;}
 	
+	private String insid = null;
+	public void setInsid(String value) {  this.insid = value; }
+	public String getInsid() { return this.insid;}
+	
+	private String spedKuKod = null;
+	public void setSpedKuKod(String value) {  this.spedKuKod = value; }
+	public String getSpedKuKod() { return this.spedKuKod;}
+	
+	private String spedKuNrs = null;
+	public void setSpedKuNrs(String value) {  this.spedKuNrs = value; }
+	public String getSpedKuNrs() { return this.spedKuNrs;}
+	
+	
 	private String errMsg = null;
 	public void setErrMsg(String value){ this.errMsg=value;  }
 	public String getErrMsg(){ return this.errMsg;  }
