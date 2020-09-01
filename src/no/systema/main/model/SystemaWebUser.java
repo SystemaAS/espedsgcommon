@@ -337,6 +337,9 @@ public class SystemaWebUser {
 	public void setSpedKuNrs(String value) {  this.spedKuNrs = value; }
 	public String getSpedKuNrs() { return this.spedKuNrs;}
 	
+	private String spedKuAvd = null;
+	public void setSpedKuAvd(String value) {  this.spedKuAvd = value; }
+	public String getSpedKuAvd() { return this.spedKuAvd;}
 	
 	private String errMsg = null;
 	public void setErrMsg(String value){ this.errMsg=value;  }
