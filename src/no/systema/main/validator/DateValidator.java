@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.regex.*;
 import java.time.format.DateTimeFormatter;
 import org.apache.log4j.Logger;
+
+import no.systema.main.util.DateTimeManager;
 import no.systema.main.util.StringManager;
 
 /**
@@ -168,7 +170,31 @@ public class DateValidator {
 		}	
 		return retval;
     }
-    
-    
+    /**
+     * Elucidates the validity of a driver (older than 18 years)
+     * @return
+     * @throws Exception
+     */
+    public boolean validDrivingAgeNorway(String dateNO) {
+    	boolean retval = true;
+	    SimpleDateFormat formater=new SimpleDateFormat(DATE_MASK_NO);
+		DateTimeManager dtMgr = new DateTimeManager();
+		
+		String now = dtMgr.getCurrentDate_NO();
+		logger.info(now);
+		try{
+			long d1=formater.parse(now).getTime();
+			long d2=formater.parse(dateNO).getTime();
+			
+			long result= Math.abs((d1-d2)/(1000*60*60*24))/365;
+			if(result<18){
+				retval = false;
+			}
+			logger.info(Math.abs((d1-d2)/(1000*60*60*24))/365);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return retval;
+    }
     
 }
