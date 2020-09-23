@@ -193,6 +193,27 @@ public class DateTimeManager {
 		
 		return retval;
 	}
+	
+	public boolean isValidCurrentAndForwardDateNO( String userValue){
+		boolean retval = false;
+		SimpleDateFormat formatter = new SimpleDateFormat(DateTimeManager.NO_FORMAT);
+		try{
+			if(userValue!=null){
+				//check for the minimum of values in each string
+				if(userValue.length()>=4){
+					Date userDate = formatter.parse(userValue);
+					Date today = formatter.parse(this.getCurrentDate_NO());
+					if(userDate.equals(today) || userDate.after(today)){
+						retval = true;
+					}
+				}
+			}
+		}catch(Exception e){
+			//nothing. the method will return false...
+		}
+		
+		return retval;
+	}
 	/**
 	 * 
 	 * The method compares with current date and compares it with the user value.
