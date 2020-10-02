@@ -214,6 +214,26 @@ public class DateTimeManager {
 		
 		return retval;
 	}
+	public boolean isValidForwardDateNO( String userValue){
+		boolean retval = false;
+		SimpleDateFormat formatter = new SimpleDateFormat(DateTimeManager.NO_FORMAT);
+		try{
+			if(userValue!=null){
+				//check for the minimum of values in each string
+				if(userValue.length()>=4){
+					Date userDate = formatter.parse(userValue);
+					Date today = formatter.parse(this.getCurrentDate_NO());
+					if(userDate.after(today)){
+						retval = true;
+					}
+				}
+			}
+		}catch(Exception e){
+			//nothing. the method will return false...
+		}
+		
+		return retval;
+	}
 	/**
 	 * 
 	 * The method compares with current date and compares it with the user value.
@@ -582,5 +602,59 @@ public class DateTimeManager {
 	    return ChronoUnit.DAYS.between(startDate, endtDate);
 	    //urlRequestParams.append("&dftdg=" + String.valueOf(range));
     
+	}
+	/**
+	 * 
+	 * @param userValue
+	 * @param mask
+	 * @return
+	 */
+	public boolean isToday(String userValue, String mask){
+		boolean retval = false;
+		try{
+			SimpleDateFormat dateFormat = new SimpleDateFormat(mask);
+			String x = dateFormat.format(Calendar.getInstance().getTime());
+			Date now = dateFormat.parse(x);
+			Date userTime = dateFormat.parse(userValue);
+			if(now.compareTo(userTime)==0){
+				retval = true;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			
+		}
+	    return retval;
+	}
+	
+	/**
+	 * 
+	 * @param timeUserValue
+	 * @param hoursFromNow time to consider from NOW. 2, 3, etc hours ahead
+	 * @return
+	 */
+	public boolean isValidTime(String timeUserValue, int hoursFromNow){
+		boolean retval = false;
+		try{
+			Calendar now = Calendar.getInstance();
+		    // Incrementing hours by _LIMIT_HOURS
+		    Calendar calendar2 = Calendar.getInstance();
+		    calendar2.add(Calendar.HOUR_OF_DAY, + hoursFromNow);
+		    
+		    SimpleDateFormat dateFormat = new SimpleDateFormat("HHmm");
+			Date userTime = dateFormat.parse(timeUserValue);
+			String minimumHour = String.valueOf(calendar2.get(Calendar.HOUR_OF_DAY));
+			String minimumMinute = String.valueOf(calendar2.get(Calendar.MINUTE));
+			Date minimumTime = dateFormat.parse(minimumHour + minimumMinute);
+	
+			if (userTime.after(minimumTime)){
+			    //logger.warn("Ahead!");
+			    retval = true;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return retval;
+		
 	}
 }
