@@ -110,6 +110,10 @@ public class JsonSystemaUserContainer {
 	public void setArkivKodTurList(Collection<JsonSystemaUserExtensionsArchiveRecord> value){ this.arkivKodTurList = value; }
 	public Collection<JsonSystemaUserExtensionsArchiveRecord> getArkivKodTurList(){ return arkivKodTurList; }
 	
+	private Collection<JsonSystemaUserExtensionsArchiveRecord> arkivKodExpList;
+	public void setArkivKodExpList(Collection<JsonSystemaUserExtensionsArchiveRecord> value){ this.arkivKodExpList = value; }
+	public Collection<JsonSystemaUserExtensionsArchiveRecord> getArkivKodExpList(){ return arkivKodExpList; }
+	
 	private Collection<JsonSystemaUserExtensionsMultiUserSwitchRecord> multiUser;
 	public void setMultiUser(Collection<JsonSystemaUserExtensionsMultiUserSwitchRecord> value){ this.multiUser = value; }
 	public Collection<JsonSystemaUserExtensionsMultiUserSwitchRecord> getMultiUser(){ return multiUser; }
