@@ -24,6 +24,7 @@ import no.systema.jservices.common.util.StringUtils;
  */
 public class DateTimeManager {
 	public static final String ISO_FORMAT = "yyyyMMdd";
+	public static final String ISO_FORMAT_REVERSED = "ddMMyyyy";
 	public static final String NO_FORMAT = "ddMMyy";
 
 	/**
@@ -378,6 +379,31 @@ public class DateTimeManager {
 				Date d = sdf.parse(oldDateString);
 				
 				sdf.applyPattern(ISO_FORMAT);
+				newDateString = sdf.format(d);
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		return newDateString;
+	}
+	/**
+	 * 
+	 * @param value
+	 * @param sourceDateMask
+	 * @param outputDateMask
+	 * @return
+	 */
+	public String getDateFormatted_ISO(String value, String sourceDateMask, String outputDateMask){
+		String newDateString = value;
+		final String OLD_FORMAT = sourceDateMask;
+		if(value!=null && !"".equals(value)){
+			try{
+				String oldDateString = value;
+				SimpleDateFormat sdf = new SimpleDateFormat(OLD_FORMAT);
+				Date d = sdf.parse(oldDateString);
+				
+				sdf.applyPattern(outputDateMask);
 				newDateString = sdf.format(d);
 				
 			}catch(Exception e){
