@@ -73,8 +73,15 @@ public class BigDecimalFormatter {
 	
 	private String cleanFormattedAspects(String value){
 		String retval = value;
+		//to eliminate the thousands separator in a de-DE locale
 		if(retval.contains(".") && retval.contains(",")){
 			retval = retval.replace(".", "");
+		}
+		//The minus sign could be at the end of the number (RPG special variation). 
+		//We must eliminate that and put the sign at the beginning of the number
+		if(retval.contains("-")){
+			retval = retval.replace("-", "");
+			retval = "-" + retval;
 		}
 		
 		return retval;
