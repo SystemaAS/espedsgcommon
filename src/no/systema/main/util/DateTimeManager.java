@@ -12,6 +12,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
+
 import no.systema.jservices.common.util.StringUtils;
 
 
@@ -26,7 +28,8 @@ public class DateTimeManager {
 	public static final String ISO_FORMAT = "yyyyMMdd";
 	public static final String ISO_FORMAT_REVERSED = "ddMMyyyy";
 	public static final String NO_FORMAT = "ddMMyy";
-
+	private static final Logger logger = Logger.getLogger(DateTimeManager.class.getName());
+	
 	/**
 	 * Gets the current ISO date
 	 * @return
@@ -218,12 +221,16 @@ public class DateTimeManager {
 	public boolean isValidForwardDateNO( String userValue){
 		boolean retval = false;
 		SimpleDateFormat formatter = new SimpleDateFormat(DateTimeManager.NO_FORMAT);
+		logger.warn(userValue);
+		logger.warn(this.getCurrentDate_NO());
+		
 		try{
 			if(userValue!=null){
 				//check for the minimum of values in each string
 				if(userValue.length()>=4){
 					Date userDate = formatter.parse(userValue);
 					Date today = formatter.parse(this.getCurrentDate_NO());
+					
 					if(userDate.after(today)){
 						retval = true;
 					}
