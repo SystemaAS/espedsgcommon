@@ -18,6 +18,10 @@ public final class MainUrlDataStore {
 	//Special firm code service in order to login above
 	@UrlDataStoreAnnotationForField (name="@DashboardController - logonDashboard.do ", description=" --> SYSTEMA_WEB_FIRMLOGIN_URL - firma code")
 	static public String SYSTEMA_WEB_FIRMLOGIN_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsSYFIRMLOGIN.do";
+	
+	//get user from BRIDF 
+	static public String SYSTEMA_GET_USER_FROM_BRIDF_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsBRIDFDPR.do";
+		
 	//Change password 
 	@UrlDataStoreAnnotationForField (name="@LoginController - doChgPwd.do ", description=" --> SYSTEMA_WEB_LOGIN_CHANGE_PWD_URL - change password")
 	static public String SYSTEMA_WEB_LOGIN_CHANGE_PWD_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsBRIDFDPR_U.do";

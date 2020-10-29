@@ -33,11 +33,12 @@ public class SystemaUserMapper extends ObjectMapperAbstractGrandFather {
 		
 		//DEBUG
 		Collection<JsonSystemaUserRecord> fields = systemaUserContainer.getMenuList();
-		for(JsonSystemaUserRecord record : fields){
-			//logger.info("Program: " + record.getProg());
-			//logger.info("Program text: " + record.getPrTxt());
-		}
-			
+		if(fields!=null){
+			for(JsonSystemaUserRecord record : fields){
+				//logger.info("Program: " + record.getProg());
+				//logger.info("Program text: " + record.getPrTxt());
+			}
+		}	
 		return systemaUserContainer;
 	}
 }
