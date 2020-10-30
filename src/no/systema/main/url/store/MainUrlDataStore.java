@@ -21,7 +21,15 @@ public final class MainUrlDataStore {
 	
 	//get user from BRIDF 
 	static public String SYSTEMA_GET_USER_FROM_BRIDF_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsBRIDFDPR.do";
-		
+	
+	//check uxternal token
+	//https://gw.systema.no:65209/sycgip/tjchkunid.pgm?user=NN&avd=&opd=&tur=80000118&unid=vQYJmtssi3  
+	static public String SYSTEMA_CHECK_UNID_TOKEN_UXTERNAL_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/tjchkunid.pgm";
+	
+	//archive types uxternal
+	//https://gw.systema.no:65209/sycgip/tjinqak.pgm?user=NN&type=
+	static public String SYSTEMA_GET_ARCHIVE_TYPES_UXTERNAL_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/tjinqak.pgm";
+	
 	//Change password 
 	@UrlDataStoreAnnotationForField (name="@LoginController - doChgPwd.do ", description=" --> SYSTEMA_WEB_LOGIN_CHANGE_PWD_URL - change password")
 	static public String SYSTEMA_WEB_LOGIN_CHANGE_PWD_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicesbcore/syjsBRIDFDPR_U.do";

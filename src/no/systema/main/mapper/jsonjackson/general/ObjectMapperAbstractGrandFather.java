@@ -4,6 +4,7 @@
 package no.systema.main.mapper.jsonjackson.general;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper; 
@@ -15,6 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @date Nov 7, 2017
  * 
  */
+@Component
 public abstract class ObjectMapperAbstractGrandFather {
 	
 	public ObjectMapper getObjectMapper() {
