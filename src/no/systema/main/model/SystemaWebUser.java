@@ -260,7 +260,10 @@ public class SystemaWebUser {
 	public void setAuthorizedTulltaxaUserAS400(String value) {  this.authorizedTulltaxaUserAS400 = value; }
 	public String getAuthorizedTulltaxaUserAS400() { return this.authorizedTulltaxaUserAS400;}
 	
-	
+	private String archiveRootPath = null;
+	public void setArchiveRootPath(String value) {  this.archiveRootPath = value; }
+	public String getArchiveRootPath() { return this.archiveRootPath;}
+
 	private String usrLang = "NO";
 	public void setUsrLang(String value) {  this.usrLang = value; }
 	public String getUsrLang() { return this.usrLang;}
