@@ -243,4 +243,18 @@ public class NumberFormatterLocaleAware {
 		 return value.setScale(numberOfDecimals, RoundingMode.HALF_UP);
 	 }
 	 
+	 public String formatBigDecimal(int numberOfDecimals, String value){
+		String retval = value;
+		int i = value.indexOf(",");
+		if(i>0){
+			value = value.replace(",", ".");
+			BigDecimal bd = new BigDecimal(value);
+			bd = bd.setScale(numberOfDecimals, RoundingMode.HALF_UP);
+			String tmp = bd.toString();
+			retval = tmp.replace(".", ",");
+				
+		}
+		return retval;
+	 }
+	 
 }
