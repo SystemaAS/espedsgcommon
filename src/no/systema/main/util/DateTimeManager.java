@@ -690,4 +690,24 @@ public class DateTimeManager {
 		return retval;
 		
 	}
+	
+	
+	public String convertToDate_ISO (String value){
+		String retval = null;
+		
+		if(StringUtils.hasValue(value)){
+			DateTimeManager dateMgr = new DateTimeManager();
+			retval = dateMgr.getDateFormatted_ISO(value, DateTimeManager.NO_FORMAT);
+		}
+		return retval;
+	}
+	/**
+	 * 
+	 * @param value
+	 * @return
+	 */
+	public String convertToDate_NO (String value){
+		DateTimeManager dateMgr = new DateTimeManager();
+		return dateMgr.getDateFormatted_NO(value, DateTimeManager.ISO_FORMAT);
+	}
 }
