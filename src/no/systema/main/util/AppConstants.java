@@ -70,6 +70,7 @@ public final class AppConstants {
 	public static final String HTML_CONTENTTYPE_PDF = "application/pdf";
 	public static final String HTML_CONTENTTYPE_TIFF = "image/tiff";
 	public static final String HTML_CONTENTTYPE_JPEG = "image/jpeg";
+	public static final String HTML_CONTENTTYPE_PNG = "image/png";
 	public static final String HTML_CONTENTTYPE_WORD = "application/msword";
 	public static final String HTML_CONTENTTYPE_EXCEL = "application/ms-excel";
 	public static final String HTML_CONTENTTYPE_ZIP = "application/zip";
@@ -83,11 +84,14 @@ public final class AppConstants {
 	public static final String DOCUMENTTYPE_TIF = "tif";
 	public static final String DOCUMENTTYPE_JPEG = "jpeg";
 	public static final String DOCUMENTTYPE_JPG = "jpg";
+	public static final String DOCUMENTTYPE_PNG = "png";
 	public static final String DOCUMENTTYPE_DOC = "doc";
 	public static final String DOCUMENTTYPE_XLS = "xls";
 	public static final String DOCUMENTTYPE_XLSX = "xlsx";
 	public static final String DOCUMENTTYPE_CSV = "csv";
 	public static final String DOCUMENTTYPE_MSG = "msg";
+	
+	
 	
 	
 	//TDS-Login
