@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.*;
 import java.time.format.DateTimeFormatter;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 import no.systema.main.util.DateTimeManager;
 import no.systema.main.util.StringManager;
@@ -20,7 +20,7 @@ public class DateValidator {
 	public static final String DATE_MASK_NO = "ddMMyy";
 	public static final String DATE_MASK_ISO = "yyyyMMdd";
 	
-	private static final Logger logger = Logger.getLogger(DateValidator.class.getName());
+	private static final Logger logger = LogManager.getLogger(DateValidator.class.getName());
 	//This pattern checks ONLY the logical part of HH:mm
 	//The logical part for a date, including leap years is too complicated to implement here. 
 	//Java and Apache mechanisms do not include any nice library to avoid this issue, therefore we do not implement any logical control on date, ONLY in time.

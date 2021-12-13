@@ -12,7 +12,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
 import no.systema.main.util.AppConstants;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 /**
  * @author oscardelatorre
@@ -25,7 +25,7 @@ import org.apache.log4j.Logger;
  */
 public class FileContentRenderer {
 	private PayloadContentFlusher payloadContentFlusher = new PayloadContentFlusher();
-	private static Logger logger = Logger.getLogger(FileContentRenderer.class.getName());
+	private static Logger logger = LogManager.getLogger(FileContentRenderer.class.getName());
 	
 	/**
 	 * 

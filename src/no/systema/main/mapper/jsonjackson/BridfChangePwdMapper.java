@@ -4,7 +4,7 @@
 package no.systema.main.mapper.jsonjackson;
 
 //jackson library
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 
 import no.systema.main.mapper.jsonjackson.general.ObjectMapperAbstractGrandFather;
@@ -22,7 +22,7 @@ import java.util.*;
  * 
  */
 public class BridfChangePwdMapper extends ObjectMapperAbstractGrandFather{
-	private static final Logger logger = Logger.getLogger(BridfChangePwdMapper.class.getName());
+	private static final Logger logger = LogManager.getLogger(BridfChangePwdMapper.class.getName());
 	
 	public JsonBridfChangePwdContainer getContainer(String utfPayload) throws Exception{
 		

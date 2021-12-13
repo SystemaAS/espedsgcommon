@@ -4,7 +4,7 @@
 package no.systema.main.mapper.jsonjackson.general;
 
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 //application library
 import no.systema.main.model.jsonjackson.general.postalcodes.JsonPostalCodesContainer;
@@ -22,7 +22,7 @@ import java.util.*;
  * 
  */
 public class PostalCodesMapper extends ObjectMapperAbstractGrandFather {
-	private static final Logger logger = Logger.getLogger(PostalCodesMapper.class.getName());
+	private static final Logger logger = LogManager.getLogger(PostalCodesMapper.class.getName());
 	/**
 	 * 
 	 * @param utfPayload

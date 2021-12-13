@@ -4,7 +4,7 @@
 package no.systema.main.util;
 
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 /**
  * @author oscardelatorre
@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
  * 
  */
 public class JsonDebugger {
-	private static final Logger logger = Logger.getLogger(JsonDebugger.class.getName());
+	private static final Logger logger = LogManager.getLogger(JsonDebugger.class.getName());
 	int baseLimit = 0;
 	/**
 	 * 

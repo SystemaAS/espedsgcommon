@@ -4,7 +4,7 @@
 package no.systema.main.mapper.jsonjackson.general;
 
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 //application library
 import no.systema.main.model.jsonjackson.general.JsonFileUploadToArchiveValidationContainer;
@@ -19,7 +19,7 @@ import java.util.*;
  * 
  */
 public class FileUploadToArchiveMapper extends ObjectMapperAbstractGrandFather {
-	private static final Logger logger = Logger.getLogger(FileUploadToArchiveMapper.class.getName());
+	private static final Logger logger = LogManager.getLogger(FileUploadToArchiveMapper.class.getName());
 	/**
 	 * 
 	 * @param utfPayload

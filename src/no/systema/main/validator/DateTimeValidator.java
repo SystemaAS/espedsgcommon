@@ -10,7 +10,7 @@ import java.time.format.ResolverStyle;
 import java.time.LocalDateTime;
 
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 import no.systema.main.util.StringManager;
 
 /**
@@ -23,7 +23,7 @@ public class DateTimeValidator {
 	public static final String DATE_MASK_NO = "ddMMuu";
 	public static final String DATE_MASK_ISO = "uuuuMMdd";
 	
-	private static final Logger logger = Logger.getLogger(DateTimeValidator.class.getName());
+	private static final Logger logger = LogManager.getLogger(DateTimeValidator.class.getName());
 	private StringManager strMgr = new StringManager();
 	/**
 	 * 

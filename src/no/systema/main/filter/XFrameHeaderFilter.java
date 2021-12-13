@@ -11,10 +11,10 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 public class XFrameHeaderFilter implements Filter {
-	private static Logger logger = Logger.getLogger(XFrameHeaderFilter.class);
+	private static Logger logger = LogManager.getLogger(XFrameHeaderFilter.class);
     private FilterConfig filterConfig;
 
 	public void init(FilterConfig filterConfig) throws ServletException {

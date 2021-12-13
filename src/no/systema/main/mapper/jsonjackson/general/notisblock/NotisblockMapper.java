@@ -4,7 +4,7 @@
 package no.systema.main.mapper.jsonjackson.general.notisblock;
 
 //jackson library
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 import no.systema.main.mapper.jsonjackson.general.ObjectMapperAbstractGrandFather;
 //application library
@@ -21,7 +21,7 @@ import java.util.*;
  * 
  */
 public class NotisblockMapper extends ObjectMapperAbstractGrandFather {
-	private static final Logger logger = Logger.getLogger(NotisblockMapper.class.getName());
+	private static final Logger logger = LogManager.getLogger(NotisblockMapper.class.getName());
 	
 	public JsonNotisblockContainer getContainer(String utfPayload) throws Exception{
 		//At this point we now have an UTF-8 payload

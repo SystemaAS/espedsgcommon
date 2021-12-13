@@ -4,7 +4,7 @@
 package no.systema.z.main.maintenance.mapper.jsonjackson.dbtable.skat;
 
 //jackson library
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 import no.systema.main.mapper.jsonjackson.general.ObjectMapperAbstractGrandFather;
 //application library
@@ -19,7 +19,7 @@ import java.util.*;
  * 
  */
 public class MaintMainDkeaMapper extends ObjectMapperAbstractGrandFather {
-	private static final Logger logger = Logger.getLogger(MaintMainDkeaMapper.class.getName());
+	private static final Logger logger = LogManager.getLogger(MaintMainDkeaMapper.class.getName());
 	
 	public JsonMaintMainDkeaContainer getContainer(String utfPayload) throws Exception{
 		

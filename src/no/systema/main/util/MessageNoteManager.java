@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 /**
  * Utility class to manage message notes issues
@@ -19,7 +19,7 @@ import org.apache.log4j.Logger;
  */
 public class MessageNoteManager {
 	
-	private static Logger logger = Logger.getLogger(MessageNoteManager.class.getName());
+	private static Logger logger = LogManager.getLogger(MessageNoteManager.class.getName());
 	
 	/**
 	 * Get lines separated with CR.

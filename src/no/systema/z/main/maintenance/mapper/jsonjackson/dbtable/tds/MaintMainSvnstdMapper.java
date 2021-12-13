@@ -4,7 +4,7 @@
 package no.systema.z.main.maintenance.mapper.jsonjackson.dbtable.tds;
 
 //jackson library
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 import no.systema.main.mapper.jsonjackson.general.ObjectMapperAbstractGrandFather;
 //application library
@@ -19,7 +19,7 @@ import java.util.*;
  * 
  */
 public class MaintMainSvnstdMapper extends ObjectMapperAbstractGrandFather{
-	private static final Logger logger = Logger.getLogger(MaintMainSvnstdMapper.class.getName());
+	private static final Logger logger = LogManager.getLogger(MaintMainSvnstdMapper.class.getName());
 	
 	public JsonMaintMainSvnstdContainer getContainer(String utfPayload) throws Exception{
 		

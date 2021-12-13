@@ -4,7 +4,7 @@
 package no.systema.z.main.maintenance.mapper.jsonjackson.dbtable.sad;
 
 //jackson library
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 import no.systema.main.mapper.jsonjackson.general.ObjectMapperAbstractGrandFather;
 //application library
@@ -19,7 +19,7 @@ import java.util.*;
  * 
  */
 public class MaintMainStandiMapper extends ObjectMapperAbstractGrandFather {
-	private static final Logger logger = Logger.getLogger(MaintMainStandiMapper.class.getName());
+	private static final Logger logger = LogManager.getLogger(MaintMainStandiMapper.class.getName());
 	
 	public JsonMaintMainStandiContainer getContainer(String utfPayload) throws Exception{
 		

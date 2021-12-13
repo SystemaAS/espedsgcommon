@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import no.systema.main.model.SystemaWebUser;
@@ -23,7 +23,7 @@ import no.systema.main.util.AppConstants;
  * 
  */
 public class CookieAuthorizationInterceptor extends HandlerInterceptorAdapter {
-	private static final Logger logger = Logger.getLogger(CookieAuthorizationInterceptor.class.getName());
+	private static final Logger logger = LogManager.getLogger(CookieAuthorizationInterceptor.class.getName());
 	private final String ENTRY_MODULE_PATH_ESPEDSG2 = "/espedsg2/";
 	
 	@Override
