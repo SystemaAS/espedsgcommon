@@ -9,13 +9,13 @@ import java.io.*;
 import java.util.*;
 
 
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 /**
  *
  * @author oscart
  */
 public class TextFileReaderService  {
-	private static final Logger logger = LogManager.getLogger(TextFileReaderService.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(TextFileReaderService.class.getName());
 	
 	/**
 	 * 

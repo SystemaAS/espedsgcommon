@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 
 import no.systema.jservices.common.util.StringUtils;
 
@@ -28,7 +28,7 @@ public class DateTimeManager {
 	public static final String ISO_FORMAT = "yyyyMMdd";
 	public static final String ISO_FORMAT_REVERSED = "ddMMyyyy";
 	public static final String NO_FORMAT = "ddMMyy";
-	private static final Logger logger = LogManager.getLogger(DateTimeManager.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(DateTimeManager.class.getName());
 	
 	/**
 	 * Gets the current ISO date

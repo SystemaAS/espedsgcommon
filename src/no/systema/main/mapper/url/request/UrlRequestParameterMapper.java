@@ -6,7 +6,7 @@ package no.systema.main.mapper.url.request;
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
 
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.ReflectionUtils;
@@ -22,7 +22,7 @@ import no.systema.main.util.AppConstants;
  */
 public class UrlRequestParameterMapper {
 
-	private static Logger logger = LogManager.getLogger(UrlRequestParameterMapper.class.getName());
+	private static Logger logger = LoggerFactory.getLogger(UrlRequestParameterMapper.class.getName());
 	
 	
 	/**

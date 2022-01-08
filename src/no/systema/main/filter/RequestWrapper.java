@@ -3,7 +3,7 @@ package no.systema.main.filter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 
 /**
  * 
@@ -11,7 +11,7 @@ import org.apache.logging.log4j.*;
  * @date Dec - 2019
  */
 public final class RequestWrapper extends HttpServletRequestWrapper {
-	private static Logger logger = LogManager.getLogger(RequestWrapper.class);
+	private static Logger logger = LoggerFactory.getLogger(RequestWrapper.class);
 	public RequestWrapper(HttpServletRequest servletRequest) {
 		super(servletRequest);
 	}

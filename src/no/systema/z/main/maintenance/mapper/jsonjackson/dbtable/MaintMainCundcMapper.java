@@ -4,7 +4,7 @@
 package no.systema.z.main.maintenance.mapper.jsonjackson.dbtable;
 
 //jackson library
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 
 import no.systema.main.mapper.jsonjackson.general.ObjectMapperAbstractGrandFather;
 import no.systema.z.main.maintenance.model.jsonjackson.dbtable.JsonMaintMainCundcContainer;
@@ -15,7 +15,7 @@ import no.systema.z.main.maintenance.model.jsonjackson.dbtable.JsonMaintMainCund
  * 
  */
 public class MaintMainCundcMapper extends ObjectMapperAbstractGrandFather{
-	private static final Logger logger = LogManager.getLogger(MaintMainCundcMapper.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(MaintMainCundcMapper.class.getName());
 	
 	public JsonMaintMainCundcContainer getContainer(String utfPayload) throws Exception{
 		

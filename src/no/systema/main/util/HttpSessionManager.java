@@ -4,7 +4,7 @@ import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSession;
 
 
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 
 import javawebparts.session.SessionSize;
 /**
@@ -14,7 +14,7 @@ import javawebparts.session.SessionSize;
  * 
  */
 public class HttpSessionManager implements HttpSessionAttributeListener {
-	private static final Logger logger = LogManager.getLogger(HttpSessionManager.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(HttpSessionManager.class.getName());
 	
 	public void attributeAdded(HttpSessionBindingEvent evt){
 		logSessionSize(evt);

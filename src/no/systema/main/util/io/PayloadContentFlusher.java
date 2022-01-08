@@ -10,7 +10,7 @@ import java.net.URLConnection;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 
 /**
  * @author oscardelatorre
@@ -19,7 +19,7 @@ import org.apache.logging.log4j.*;
  */
 public class PayloadContentFlusher {
 	
-	private static final Logger logger = LogManager.getLogger(PayloadContentFlusher.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(PayloadContentFlusher.class.getName());
 	private static final int BYTE_BLOCK_SIZE = 1024;
 	
 	

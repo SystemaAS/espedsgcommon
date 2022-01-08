@@ -2,7 +2,7 @@ package no.systema.main.validator;
 
 import java.util.*;
 import java.util.regex.*;
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 
 
 /**
@@ -14,7 +14,7 @@ import org.apache.logging.log4j.*;
 public class EmailValidator {
      //private final String EMAIL_REGEX_SIMPLE = ".+@([a-z\\-]|[A-Z\\-]|\\d)+\\.[a-z][a-z]+";
 	private final String EMAIL_REGEX_SIMPLE =  "^[a-zA-Z0-9][\\w\\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\\w\\.-]*[a-zA-Z0-9]\\.[a-zA-Z][a-zA-Z\\.]*[a-zA-Z]$";
-	private static final Logger logger = LogManager.getLogger(EmailValidator.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(EmailValidator.class.getName());
 	
     /**
      * validates email

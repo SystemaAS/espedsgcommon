@@ -10,7 +10,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 
 /**
  * 
@@ -18,7 +18,7 @@ import org.apache.logging.log4j.*;
  * @date Dec - 2019
  */
 public class CrossScriptingFilter implements Filter {
-	private static Logger logger = LogManager.getLogger(CrossScriptingFilter.class);
+	private static Logger logger = LoggerFactory.getLogger(CrossScriptingFilter.class);
     private FilterConfig filterConfig;
 
 	public void init(FilterConfig filterConfig) throws ServletException {

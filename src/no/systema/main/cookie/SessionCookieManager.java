@@ -8,7 +8,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 
 import lombok.Data;
 import no.systema.jservices.common.util.AesEncryptionDecryptionManager;
@@ -17,7 +17,7 @@ import no.systema.main.util.AppConstants;
 
 @Data
 public class SessionCookieManager {
-	private static final Logger logger = LogManager.getLogger(SessionCookieManager.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(SessionCookieManager.class.getName());
 	private static int TIME_OUT_VALUE_IN_SECONDS = 3600;
 	private final String ENTRY_MODULE_PATH_ESPEDSG2 = "/espedsg2/";
 	
@@ -49,7 +49,7 @@ public class SessionCookieManager {
     	setSecureCookie(cookie);
     	//global cookie accessible every where
     	cookie.setPath("/");
-    	logger.warn(cookie);
+    	//logger.warn(cookie);
     	response.addCookie(cookie);
 		
 	}
@@ -198,7 +198,7 @@ public class SessionCookieManager {
 				}
 			}
 		}catch(Exception e){
-			logger.fatal(e.toString());
+			logger.error(e.toString());
 		}
 		return retval;
 	}
@@ -230,7 +230,7 @@ public class SessionCookieManager {
 				logger.warn("authorized...");
 				retval = true;
 			}else{
-				logger.fatal("unauthorized...");
+				logger.error("unauthorized...");
 				retval = false;
 			}
 		}

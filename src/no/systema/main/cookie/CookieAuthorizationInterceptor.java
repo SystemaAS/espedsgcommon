@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import no.systema.main.model.SystemaWebUser;
@@ -23,7 +23,7 @@ import no.systema.main.util.AppConstants;
  * 
  */
 public class CookieAuthorizationInterceptor extends HandlerInterceptorAdapter {
-	private static final Logger logger = LogManager.getLogger(CookieAuthorizationInterceptor.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(CookieAuthorizationInterceptor.class.getName());
 	private final String ENTRY_MODULE_PATH_ESPEDSG2 = "/espedsg2/";
 	
 	@Override
@@ -56,7 +56,7 @@ public class CookieAuthorizationInterceptor extends HandlerInterceptorAdapter {
    			logger.warn(e.toString());
     		
     	}
-    	logger.warn(isAuthorized);
+    	//logger.warn(isAuthorized);
     	
     	
     	//this redirect is necessary in order to avoid blank sites ... and send the user to the necessary start point (if applicable)

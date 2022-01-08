@@ -4,7 +4,7 @@
 package no.systema.main.mapper.jsonjackson;
 
 //jackson library
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 
 
 import no.systema.main.mapper.jsonjackson.general.ObjectMapperAbstractGrandFather;
@@ -22,7 +22,7 @@ import java.util.*;
  * 
  */
 public class FirmLoginMapper extends ObjectMapperAbstractGrandFather{
-	private static final Logger logger = LogManager.getLogger(FirmLoginMapper.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(FirmLoginMapper.class.getName());
 	
 	public JsonFirmLoginContainer getContainer(String utfPayload) throws Exception{
 		

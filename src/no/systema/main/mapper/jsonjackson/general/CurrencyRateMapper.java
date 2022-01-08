@@ -4,7 +4,7 @@
 package no.systema.main.mapper.jsonjackson.general;
 
 //jackson library
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 
 //application library
 import no.systema.main.model.jsonjackson.general.JsonCurrencyRateContainer;
@@ -20,7 +20,7 @@ import java.util.*;
  * 
  */
 public class CurrencyRateMapper extends ObjectMapperAbstractGrandFather{
-	private static final Logger logger = LogManager.getLogger(CurrencyRateMapper.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(CurrencyRateMapper.class.getName());
 	
 	public JsonCurrencyRateContainer getContainer(String utfPayload) throws Exception{
 		

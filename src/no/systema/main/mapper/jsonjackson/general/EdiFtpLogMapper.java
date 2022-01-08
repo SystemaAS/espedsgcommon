@@ -4,7 +4,7 @@
 package no.systema.main.mapper.jsonjackson.general;
 
 //jackson library
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 
 //application library
 import no.systema.main.model.jsonjackson.general.JsonEdiFtpLogContainer;
@@ -22,7 +22,7 @@ import java.util.*;
  * 
  */
 public class EdiFtpLogMapper extends ObjectMapperAbstractGrandFather {
-	private static final Logger logger = LogManager.getLogger(EdiFtpLogMapper.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(EdiFtpLogMapper.class.getName());
 	/**
 	 * 
 	 * @param utfPayload
