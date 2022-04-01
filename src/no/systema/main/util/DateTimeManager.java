@@ -126,6 +126,21 @@ public class DateTimeManager {
 		
 		return  retval; 
 	}
+	
+	public String getSpecificDayFrom_CurrentDate_ISO(int numberOfDays){
+		String retval = null;
+		SimpleDateFormat dateFormat = new SimpleDateFormat(ISO_FORMAT);
+		Calendar cal = Calendar.getInstance();
+		try{
+			cal.add(Calendar.DAY_OF_MONTH, numberOfDays);
+			retval = dateFormat.format(cal.getTime()); 
+			
+		}catch(Exception e){
+			//Nothing
+		}
+		
+		return  retval; 
+	}
 	/**
 	 * Gets the current NO date
 	 * @return
