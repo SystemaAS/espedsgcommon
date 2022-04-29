@@ -11,11 +11,14 @@ import java.util.*;
 
 import org.slf4j.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * @author oscardelatorre
  * @date Jun 16, 2017
  *
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class JsonMaintMainSvxstdRecord extends JsonAbstractGrandFatherRecord  {
 	private static final Logger logger = LoggerFactory.getLogger(JsonMaintMainSvxstdRecord.class.getName());
 	

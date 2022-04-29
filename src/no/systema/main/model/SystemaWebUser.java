@@ -106,6 +106,11 @@ public class SystemaWebUser {
 	public void setHttpCgiRoot(String value) {  this.httpCgiRoot = value; }
 	public String getHttpCgiRoot() { return this.httpCgiRoot;}
 	
+	//In order to get the application.properties: http.as400.root.cgi
+	private String httpSyjservicesRoot = null;
+	public void setHttpSyjservicesRoot(String value) {  this.httpSyjservicesRoot = value; }
+	public String getHttpSyjservicesRoot() { return this.httpSyjservicesRoot;}
+		
 	//In order to get the application.properties: http.as400.root.jquery.docs.host
 	private String httpJQueryDocRoot = null;
 	public void setHttpJQueryDocRoot(String value) {  this.httpJQueryDocRoot = value; }
@@ -195,6 +200,10 @@ public class SystemaWebUser {
 	private String tomcatPort = null; 
 	public void setTomcatPort(String value) {  this.tomcatPort = value; }
 	public String getTomcatPort() { return this.tomcatPort;}
+	
+	private String cgiPort = null; 
+	public void setCgiPort(String value) {  this.cgiPort = value; }
+	public String getCgiPort() { return this.cgiPort;}
 	
 	private String espedsgLoginTitle = "Systema AS - eSpedsg Application"; 
 	public void setEspedsgLoginTitle(String value) {  this.espedsgLoginTitle = value; }
@@ -406,6 +415,12 @@ public class SystemaWebUser {
 	public void setMenuList(Collection<JsonSystemaUserRecord> value){ this.menuList = value; }
 	public Collection<JsonSystemaUserRecord> getMenuList(){ return menuList; }
 	
+	//------------
+	//Adaptations
+	//------------
+	private boolean dachserNctsTransformationAdaptation = false;
+	public void setDachserNctsTransformationAdaptation(boolean value) {  this.dachserNctsTransformationAdaptation = value; }
+	public boolean isDachserNctsTransformationAdaptation() { return this.dachserNctsTransformationAdaptation;}
 	
 
 }
