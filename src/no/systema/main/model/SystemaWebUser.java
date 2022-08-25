@@ -196,6 +196,11 @@ public class SystemaWebUser {
 	public void setRecaptchaSecretKey(String value) {  this.recaptchaSecretKey = value; }
 	public String getRecaptchaSecretKey() { return this.recaptchaSecretKey;}
 	
+	private String key2FA = null; 
+	public void setKey2FA(String value) {  this.key2FA = value; }
+	public String getKey2FA() { return this.key2FA;}
+	
+	
 	
 	private String tomcatPort = null; 
 	public void setTomcatPort(String value) {  this.tomcatPort = value; }

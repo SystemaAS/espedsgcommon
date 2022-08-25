@@ -38,6 +38,8 @@ public final class AppConstants {
 	public static final String LOGIN_FIRMA_CODE_REQUIRED = ApplicationPropertiesUtil.getProperty("login.firma.code.required");
 	public static final String LOGIN_RECAPTCHA_SITE_KEY = ApplicationPropertiesUtil.getProperty("login.recaptcha.site.key");
 	public static final String LOGIN_RECAPTCHA_SECRET_KEY = ApplicationPropertiesUtil.getProperty("login.recaptcha.secret.key");
+	//2FA flag 
+	public static final String LOGIN_2FA_FLAG = ApplicationPropertiesUtil.getProperty("login.2fa.active");
 	
 	//session constants
 	public static final String SYSTEMA_WEB_USER_KEY = "user";
