@@ -27,12 +27,29 @@ public class DateValidator {
 	private final String DATE_ISO_203_YYYYMMDDHHmm = "^\\d{4}\\d{2}\\d{2}(([0-1]?[0-9])|(2[0-3]))[0-5][0-9]$";
 	//private final String DATE_ISO_YYYYMMDD = "^\\d{4}\\d{2}\\d{2}$";
 	private final String DATE_ISO_YYYYMMDD = "^(19|20|99)\\d\\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])$";
+	//private final String DATE_ISO_YYYY-MM-DD = "^\\d{4}\\d{2}\\d{2}$";
+	private final String DATE_ISO_YYYY_MM_DD = "^(19|20|99)\\d\\d(0[1-9]|-1[012])(-0[1-9]|[12][0-9]|3[01])$";
 	//HHmm only
 	private final String TIME_HHmm = "(([0-1]?[0-9])|(2[0-3]))[0-5][0-9]"; //OK HHmm
 	//HHmm only
 	private final String TIME_HHmmss = "(([0-1]?[0-9])|(2[0-3]))[0-5][0-9][0-5][0-9]"; //OK HHmmss
 	
-	//
+	///*
+	/**
+	 * RegExp to test a string for a ISO 8601 Date spec
+	 *  YYYY
+	 *  YYYY-MM
+	 *  YYYY-MM-DD
+	 *  YYYY-MM-DDThh:mmTZD
+	 *  YYYY-MM-DDThh:mm:ssTZD
+	 *  YYYY-MM-DDThh:mm:ss.sTZD
+	 * @see: https://www.w3.org/TR/NOTE-datetime
+	 * @type {RegExp}
+	 
+	private final String ISO_8601 = /^\d{4}(-\d\d(-\d\d(T\d\d:\d\d(:\d\d)?(\.\d+)?(([+-]\d\d:\d\d)|Z)?)?)?)?$/i
+	 */
+
+	
 	StringManager strMgr = new StringManager();
 	
     /**
@@ -72,7 +89,26 @@ public class DateValidator {
     			//System.out.println("ERROR!");
 		}
 		return retval;
-}
+    }
+    /**
+     * Whit HYPHENs YYYY-MM-dd
+     * @param str
+     * @return
+     */
+    public boolean validateDateIso203_YYYY_MM_DD(String str){
+		boolean retval = false;
+		Pattern pattern = Pattern.compile(this.DATE_ISO_YYYY_MM_DD);
+		//check date pattern
+		Matcher matcher = pattern.matcher(str);
+		if (matcher.matches()){
+	    		//Now check if it is logically correct
+			retval = true;
+	        //System.out.println("MATCH on dtm!");
+		}else{
+    			//System.out.println("ERROR!");
+		}
+		return retval;
+    }
 
     
     /**
