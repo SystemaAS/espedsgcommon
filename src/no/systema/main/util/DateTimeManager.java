@@ -4,7 +4,10 @@
 package no.systema.main.util;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
@@ -701,6 +704,34 @@ public class DateTimeManager {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		
+		return retval;
+		
+	}
+	
+	public boolean isValidTime(String timeUserValue){
+		boolean retval = false;
+		
+		Calendar now = Calendar.getInstance();
+	    int hour = now.get(Calendar.HOUR);
+	    int minute = now.get(Calendar.MINUTE);
+
+	    Calendar date1 = Calendar.getInstance();
+	    date1.set(Calendar.HOUR_OF_DAY, date1.getTime().getHours() );
+	    date1.set(Calendar.MINUTE, date1.getTime().getMinutes() );
+	    date1.set(Calendar.SECOND, 0);
+	    
+	    Calendar date2 = Calendar.getInstance();
+	    date2.set(Calendar.HOUR_OF_DAY, Integer.parseInt(timeUserValue.substring(0,2)));
+	    date2.set(Calendar.MINUTE, Integer.parseInt(timeUserValue.substring(2)));
+	    date2.set(Calendar.SECOND, 0);
+	    
+	    if (date2.after(date1)) {
+	        System.out.println(date2.getTime()+" vs "+date1.getTime());
+	        System.out.println("user time after todays...");
+	        retval = true;
+	    }
+		
 		
 		return retval;
 		

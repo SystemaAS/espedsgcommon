@@ -14,7 +14,7 @@ public class Tester {
 		System.out.println(strMgr.leadingStringWithNumericFiller(newTmp, 15, "X"));
 		*/
 		DateTimeManager mgr = new DateTimeManager();
-		System.out.println(mgr.validTwoDatesWithinSpanISO("20190101", "20180101", 15));
+		System.out.println(mgr.isValidTime("1201"));
 	}
 
 }
