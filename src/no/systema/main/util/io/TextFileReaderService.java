@@ -17,6 +17,39 @@ import org.slf4j.*;
 public class TextFileReaderService  {
 	private static final Logger logger = LoggerFactory.getLogger(TextFileReaderService.class.getName());
 	
+	
+	public String getFileLinesStringPayload(InputStream inputStream){
+        BufferedReader reader = null;
+        StringBuilder retval = new StringBuilder();
+        
+        try{
+            //reader = new BufferedReader(new FileReader(file));
+            InputStreamReader isr = new InputStreamReader(inputStream,"ISO-8859-1");
+            reader = new BufferedReader(isr);
+            String text = null;
+ 
+            // repeat until all lines are read
+            while ((text = reader.readLine()) != null){
+                retval.append(text);
+                //logger.info(text);
+            }
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        } catch (IOException e){
+            e.printStackTrace();
+        } finally{
+            try{
+                if (reader != null){
+                    reader.close();
+                }
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        
+        return retval.toString();
+
+    }
 	/**
 	 * 
 	 * @param inputStream
