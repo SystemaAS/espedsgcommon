@@ -92,6 +92,8 @@ public final class AppConstants {
 	public static final String DOCUMENTTYPE_XLSX = "xlsx";
 	public static final String DOCUMENTTYPE_CSV = "csv";
 	public static final String DOCUMENTTYPE_MSG = "msg";
+	public static final String DOCUMENTTYPE_XML = "xml";
+	
 	
 	
 	
