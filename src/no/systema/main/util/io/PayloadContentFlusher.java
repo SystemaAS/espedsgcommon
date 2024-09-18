@@ -64,6 +64,40 @@ public class PayloadContentFlusher {
 
     }
 	
+	public void flushServletOutputDigitollBupFiles(HttpServletResponse response, String urlFilePath) throws Exception{
+		//String okPDF= "/nas/arc/SE201300010000218HQkiSfL1Uj.pdf"; //this one works as test (belongs to oppdragsnr.=218
+		
+		if(urlFilePath!=null && urlFilePath.contains("http")){
+			ServletOutputStream writer = response.getOutputStream();
+	    		//test conditions
+	        //absoluteFilePath = "/ownfiles/SVIU0001-0000129";
+	        logger.info("Url file link:" + urlFilePath);
+	        URL url = new URL(urlFilePath);
+	        URLConnection urlCon = url.openConnection();
+	
+	        if(urlCon !=null){
+	    		InputStream is = new BufferedInputStream(urlCon.getInputStream());
+	            byte[] buff = new byte[BYTE_BLOCK_SIZE];
+	            int bytesRead = 0;
+	
+	            while (-1 != (bytesRead = is.read(buff, 0, buff.length))) {
+	                writer.write(buff, 0, bytesRead);
+	            }
+	            writer.flush();
+	            writer.close();
+	            is.close();
+	        	
+	        }else{
+	        		logger.info("[ERROR] Unable to open Connection on: " + urlFilePath );
+	        }
+		}else{
+			//redirect to private method (file on disk). Usually when the directory has been mapped in Apache/Tomcat 
+			//server.xml
+			this.flushServletOutputOnFileDigitollBupFiles(response, urlFilePath);
+		}
+
+    }
+	
 	/**
 	 * Gets the file payload from file on disk
 	 * 
@@ -85,6 +119,37 @@ public class PayloadContentFlusher {
             while (-1 != (bytesRead = is.read(buff, 0, buff.length))) {
                 writer.write(buff, 0, bytesRead);
             }
+            writer.flush();
+            writer.close();
+            is.close();
+        	
+        }else{
+        	String errorMsg = "[ERROR] Unable to open file on disk: " + filePath;
+    		logger.info(errorMsg);
+    		//InputStream is = new FileInputStream(filePath);
+    		writer.write(errorMsg.getBytes("UTF-8"));
+            writer.flush();
+            writer.close();         
+        }
+    }
+	
+	private void flushServletOutputOnFileDigitollBupFiles(HttpServletResponse response, String filePath) throws Exception{
+		//String okPDF= "/nas/arc/SE201300010000218HQkiSfL1Uj.pdf"; //this one works as test (belongs to oppdragsnr.=218
+		
+		ServletOutputStream writer = response.getOutputStream();
+    		
+		logger.info("File on disk:" + filePath);
+        if(filePath!=null && new File(filePath).exists()){
+			InputStream is = new FileInputStream(filePath);
+            byte[] buff = new byte[BYTE_BLOCK_SIZE];
+            int bytesRead = 0;
+
+            while (-1 != (bytesRead = is.read(buff, 0, buff.length))) {
+                writer.write(buff, 0, bytesRead);
+            }
+            //
+            //System.out.println(writer.toString());
+            
             writer.flush();
             writer.close();
             is.close();
