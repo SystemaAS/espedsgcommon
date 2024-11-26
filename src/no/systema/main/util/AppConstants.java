@@ -26,6 +26,8 @@ public final class AppConstants {
 	public static final String HTTPS_SKAT_DOWNLOAD_TOLDTARIF_FLATFILE_3 = ApplicationPropertiesUtil.getProperty("https.toldtarif.skat.download.flatfile.3");
 	public static final String HTTPS_SKAT_DOWNLOAD_TOLDTARIF_FLATFILE_4 = ApplicationPropertiesUtil.getProperty("https.toldtarif.skat.download.flatfile.4");
 	public static final String HTTPS_SKAT_DOWNLOAD_TOLDTARIF_TARGETDIR = ApplicationPropertiesUtil.getProperty("https.toldtarif.skat.download.target.dir");
+	//digitoll extras
+	public static final String EORI_VALIDATION_ACTIVE = ApplicationPropertiesUtil.getProperty("digitoll.eori.validation.active");
 	//version
 	public static final String VERSION_ESPSEDSG = ApplicationPropertiesUtil.getProperty("version.espedsg");
 	public static final String VERSION_SPRING = ApplicationPropertiesUtil.getProperty("version.spring");
