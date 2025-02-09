@@ -28,6 +28,7 @@ public final class AppConstants {
 	public static final String HTTPS_SKAT_DOWNLOAD_TOLDTARIF_TARGETDIR = ApplicationPropertiesUtil.getProperty("https.toldtarif.skat.download.target.dir");
 	//digitoll extras
 	public static final String EORI_VALIDATION_ACTIVE = ApplicationPropertiesUtil.getProperty("digitoll.eori.validation.active");
+	public static final String ZHDOC_API_AUTOMATIC_SEND_ACTIVE = ApplicationPropertiesUtil.getProperty("digitoll.zhdoc.automatic.send.active");
 	//version
 	public static final String VERSION_ESPSEDSG = ApplicationPropertiesUtil.getProperty("version.espedsg");
 	public static final String VERSION_SPRING = ApplicationPropertiesUtil.getProperty("version.spring");
