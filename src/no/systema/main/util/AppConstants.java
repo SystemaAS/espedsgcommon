@@ -29,6 +29,7 @@ public final class AppConstants {
 	//digitoll extras
 	public static final String EORI_VALIDATION_ACTIVE = ApplicationPropertiesUtil.getProperty("digitoll.eori.validation.active");
 	public static final String ZHDOC_API_AUTOMATIC_SEND_ACTIVE = ApplicationPropertiesUtil.getProperty("digitoll.zhdoc.automatic.send.active");
+	public static final String EXTHOUSE_ATTACHMENTS_UPLOAD_DIR = ApplicationPropertiesUtil.getProperty("digitoll.dir.exthouse.attachm.upload");
 	//version
 	public static final String VERSION_ESPSEDSG = ApplicationPropertiesUtil.getProperty("version.espedsg");
 	public static final String VERSION_SPRING = ApplicationPropertiesUtil.getProperty("version.spring");
