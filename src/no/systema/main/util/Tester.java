@@ -14,7 +14,7 @@ public class Tester {
 		System.out.println(strMgr.leadingStringWithNumericFiller(newTmp, 15, "X"));
 		*/
 		DateTimeManager mgr = new DateTimeManager();
-		System.out.println(mgr.isValidTime("1201"));
+		System.out.println(mgr.getDateFormatted_ISO("20250306", DateTimeManager.ISO_FORMAT, DateTimeManager.ISO_FORMAT_REVERSED));
 	}
 
 }

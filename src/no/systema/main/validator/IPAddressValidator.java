@@ -45,15 +45,45 @@ public class IPAddressValidator {
  		boolean retval = true;
  		for (int i = 0; i < INVALID_PREFIXES.length; i++) { 
  		    if(absoluteFilePath!=null && absoluteFilePath.startsWith(INVALID_PREFIXES[i])){
+ 		    	//System.out.println("Invalid here X");
  		    	retval = false;
  		    	break;
             }else if (absoluteFilePath!=null && absoluteFilePath.contains(INVALID_PREFIXES[i])){
+            	System.out.println("Inside here Y");
             	String tmp = INVALID_PREFIXES[i];
+            	//System.out.println(tmp);
+            	
             	if(tmp.equals("file") && !absoluteFilePath.contains("/resources/files/")){
             		//resources/files is a reserved path for local documentation (pdfs under the resources directory)
             		retval = false;
             		break;
             	}
+            }
+        } 
+ 		
+ 		return retval;
+ 	}
+ 	
+ 	public boolean isValidAbsoluteFilePathFor_RenderAttachmentDigitollExternalHousesUseCase(String absoluteFilePath){
+ 		String [] INVALID_PREFIXES = {"http","file","ftp","news","mailto","telnet","gopher","wais"};
+ 		
+ 		boolean retval = true;
+ 		for (int i = 0; i < INVALID_PREFIXES.length; i++) { 
+ 		    if(absoluteFilePath!=null && absoluteFilePath.startsWith(INVALID_PREFIXES[i])){
+ 		    	//System.out.println("Invalid here X");
+ 		    	retval = false;
+ 		    	break;
+            }else if (absoluteFilePath!=null && absoluteFilePath.contains(INVALID_PREFIXES[i])){
+            	//System.out.println("Inside here Y");
+            	String tmp = INVALID_PREFIXES[i];
+            	//System.out.println(tmp);
+            	
+            	/* removed temporarily to test because of digitoll - främmande houses must get attachments on file-system
+            	if(tmp.equals("file") && !absoluteFilePath.contains("/resources/files/")){
+            		//resources/files is a reserved path for local documentation (pdfs under the resources directory)
+            		retval = false;
+            		break;
+            	}*/
             }
         } 
  		
